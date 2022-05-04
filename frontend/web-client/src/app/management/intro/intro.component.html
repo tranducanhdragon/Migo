@@ -1,0 +1,217 @@
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
+    <div class="head-container">
+        <div class="logo">
+            <img src="/assets/image/logo.png" alt="">
+        </div>
+        <div class="search">
+            <span>Search</span>
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="head-left">
+            <div class="notification">
+                <i class="pi pi-bell mr-4 p-text-secondary" pBadge style="font-size: 2rem" value="10" severity="danger">
+                </i>
+            </div>
+            <div class="user-info">
+                <div class="user-logo">
+                    <img width="32" height="32" src="/assets/image/user.png" alt="">
+                </div>
+                <div class="user-name">
+                    <span>Lana Nguyễn</span>
+                </div>
+            </div>
+            <div class="menu">
+                <i class="fas fa-align-justify"></i>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="slide">
+    <div class="d-block w-100 h-484">
+    </div>
+    <div class="slide-area">
+        <div class="padding-none">
+            <div class="">
+                <ngb-carousel class="w-100 slide-hei" #carousel [interval]="2000" [pauseOnHover]="pauseOnHover"
+                    [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
+                    <ng-template ngbSlide *ngFor="let img of images; index as i">
+                        <a href="https://www.google.fr/?q=Number+{{ i + 1 }}" target="_blank"
+                            rel="nofollow noopener noreferrer">
+                            <div class="picsum-img-wrapper">
+                                <img [src]="img" class="w-100 slide-hei" alt="My image {{ i + 1 }} description" />
+                            </div>
+                        </a>
+                    </ng-template>
+                </ngb-carousel>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Description 1 -->
+<div class="basic-1 mt-64">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="image-container">
+                    <img width="350" height="400" class="img-fluid" [src]="'/assets/image/p1.png'" alt="alternative">
+                </div> <!-- end of image-container -->
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <div class="text-container">
+                    <h3>Tailor-made tours just for you</h3>
+                    <p>
+                        We believe your travel journey to be
+                        fulfilling when it is customized as what
+                        you’ve wished. Migo’s travel consultants
+                        are the experts in their field with deep
+                        knowledge in tourism and hospitality. We
+                        are ready to design each of your trips
+                        no matter how long or short it’s going to be.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="basic-1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <div class="text-container">
+                    <h3>Reasonable price, premium quality</h3>
+                    <p>
+                        Traveling is an incredible experience
+                        for anyone at any time. We love to inspire
+                        the beauty of exploring the world to our
+                        users and make sure of the affordability.
+                        Not just a bonus point but a common sense
+                        to Migo Team that we always want to achieve
+                        the high standards and double-check with...
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="image-container">
+                    <img width="350" height="400" class="img-fluid" [src]="'/assets/image/p2.png'" alt="alternative">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="basic-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="image-container">
+                    <img width="350" height="400" class="img-fluid" [src]="'/assets/image/p3.png'" alt="alternative">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="text-container">
+                    <h3>Excellent customer service</h3>
+                    <p>
+                        Every customer has a different travel expectation.
+                        By listening to your wish, we’ll be the
+                        companion consulting the most suitable
+                        expedition not only for you, but also for
+                        the group you’re possibly going with. Our
+                        consultants can support before-during-after
+                        the trip as per request. Your happiness is our...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contact">
+    <div class="row">
+        <div class="col-3">
+
+        </div>
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+    </div>
+</div>
+<div class="trending">
+
+</div>
+<div class="tour">
+    <div class="tour-title">
+        <span>Popular tour package</span>
+    </div>
+    <div class="row">
+        <ng-container *ngIf="tours">
+            <div *ngFor="let tour of tours" class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="/assets/image/tour1.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{tour.tourName}}</h5>
+                        <p class="card-text">
+                            Zannier Hotels Bai San Coral is a
+                            luxury resort hidden in a natural conservation space..
+                        </p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="row">
+                            <div class="col-6">
+                                <span>From {{tour.tourPrice}}/pax</span>
+                            </div>
+                            <div class="col-6">
+                                <span>{{tour.tourTime}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+<div class="review">
+
+</div>
+<div class="partner">
+
+</div>
+
+<!-- Footer-->
+<footer class="footer text-center">
+    <div class="container">
+        <div class="row">
+            <!-- Footer Location-->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <h4 style="color: #fff;" class="text-uppercase mb-4">Địa chỉ</h4>
+                <p style="color: #fff;" class="lead mb-0">
+                    Hà Nội - Việt Nam
+                    <br />
+                </p>
+            </div>
+            <!-- Footer Social Icons-->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <h4 style="color: #fff;" class="text-uppercase mb-4">Về trang chủ</h4>
+                <a class="btn btn-outline-light btn-social mx-1"><i class="fab fa-fw fa-facebook-f"></i></a>
+                <a class="btn btn-outline-light btn-social mx-1"><i class="fab fa-fw fa-twitter"></i></a>
+                <a class="btn btn-outline-light btn-social mx-1"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                <a class="btn btn-outline-light btn-social mx-1"><i class="fab fa-fw fa-dribbble"></i></a>
+            </div>
+            <!-- Footer About Text-->
+            <div class="col-lg-4">
+                <h4 style="color: #fff;" class="text-uppercase mb-4">Về quy mô</h4>
+                <p style="color: #fff;" class="lead mb-0">
+                    Dự án startup của sinh viên
+                    <a></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Copyright Section-->
+<div class="copyright py-4 text-center text-white">
+    <div class="container">
+        <small>Copyright &copy; by DucAnhTran
+            {{currentYear}}
+        </small>
+    </div>
+</div>

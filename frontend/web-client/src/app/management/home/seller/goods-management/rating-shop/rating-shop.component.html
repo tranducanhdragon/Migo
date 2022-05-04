@@ -1,0 +1,29 @@
+<div>
+  <div style="display: flex;">
+      <div>
+          <div style="font-size: 25px; font-weight: 600;">Đánh giá Shop</div>
+          <p style="color: #c2c2c2;">Xem đánh giá Shop của bạn</p>
+      </div>
+      <div style="margin-left: auto">
+          <span style="font-size: 40px; color: red;">{{shopData.rate}}</span>
+          <span style="font-size: 25px; color: #c2c2c2;"> / 5</span>
+      </div>
+  </div>
+  <p-divider></p-divider>
+  <div>
+      <p-tabView>
+          <p-tabPanel header="Tất cả">
+             <table-review [dataSource]="allReviews" [shopData]="shopData"></table-review>
+          </p-tabPanel>
+          <p-tabPanel header="Đánh giá shop">
+            <table-review [dataSource]="shopReviews" [shopData]="shopData"></table-review>
+        </p-tabPanel>
+        <p-tabPanel header="Đánh giá sản phẩm">
+            <table-review [dataSource]="itemReviews"></table-review>
+        </p-tabPanel>
+        <p-tabPanel header="Đã trả lời">
+            <table-review [dataSource]="answeredReviews" [shopData]="shopData"></table-review>
+        </p-tabPanel>
+     </p-tabView>
+  </div>
+</div>

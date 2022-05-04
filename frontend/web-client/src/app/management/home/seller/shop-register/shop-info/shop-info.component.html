@@ -1,0 +1,68 @@
+<div [@routerTransition]>
+  <p-card [style]="{'background-color':'rgb(237,237,237)'}">
+      <ng-template pTemplate="title">
+        <label for="">
+          Thông tin cửa hàng
+        </label>
+      </ng-template>
+      <ng-template pTemplate="content">
+          <div class="container-fluid">
+            <div class="p-field">
+              <img *ngIf="shopInfo.imageUrl != ''"
+              [src]="shopInfo.imageUrl" height="200px" width="300px">
+              <label for="restaurant-name">Hình ảnh đại diện 
+                <span class="text-danger">*</span>
+              </label>
+              <p-fileUpload #fubauto mode="basic" name="demo[]" accept="image/*" [customUpload]="true" 
+                [maxFileSize]="10000000" (uploadHandler)="uploadImage($event)" [auto]="true" chooseLabel="Browse">
+              </p-fileUpload> 
+              <small class="p-invalid" *ngIf="!shopInfo.imageUrl && isNext">
+                Ảnh đại diện không được để trống
+              </small>
+            </div>
+              <div class="p-field">
+                  <label for="restaurant-name">Tên cửa hàng <span class="text-danger">*</span></label>
+                  <input
+                  required
+                  [ngClass]="!shopInfo.name && isNext?'ng-dirty':''" 
+                  [(ngModel)]="shopInfo.name" type="text" pInputText>
+                  <small class="p-invalid" *ngIf="!shopInfo.name && isNext">
+                    Tên cửa hàng không được để trống
+                  </small>
+              </div>
+              <div class="p-field">
+                  <label for="phone">Số điện thoại liên hệ <span class="text-danger">*</span></label>
+                  <input 
+                  required
+                  [ngClass]="!shopInfo.phoneNumber && isNext?'ng-dirty':''"
+                  [(ngModel)]="shopInfo.phoneNumber" type="text" pInputText>
+                  <small class="p-invalid" *ngIf="!shopInfo.phoneNumber && isNext">
+                    Số điện thoại cửa hàng không được để trống
+                  </small>
+              </div>
+             
+              <div class="p-field">
+                <label for="address">Địa chỉ liên hệ<span class="text-danger">*</span></label>
+                <input
+                 required
+                 [ngClass]="!shopInfo.address && isNext?'ng-dirty':''"
+                 [(ngModel)]="shopInfo.address" type="address" pInputText>
+                <small class="p-invalid" *ngIf="!shopInfo.address && isNext">
+                  Địa chỉ cửa hàng không được để trống
+                </small>
+              </div>
+              <div class="p-field">
+                <label for="detail">Mô tả cửa hàng</label>
+                <textarea [(ngModel)]="shopInfo.detail" id="detail" pInputTextarea
+                rows="5" ></textarea>
+            </div>
+          </div>
+      </ng-template>
+      <ng-template pTemplate="footer">
+          <div class="p-grid p-nogutter p-justify-end" style="display: flex">
+              <p-button label="Cancel" class="p-button-secondary" (onClick)="cancel()" icon="pi pi-angle-left"></p-button>
+              <p-button label="Next" class="btn-next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"></p-button>
+          </div>
+      </ng-template>
+  </p-card>
+</div>

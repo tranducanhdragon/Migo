@@ -1,0 +1,118 @@
+.head-container {
+    height: 64px;
+    padding: 0 !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .logo {
+        display: flex;
+        height: 64px;
+        position: absolute;
+        left: 36px;
+    }
+
+    .search {
+        display: flex;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        width: 600px;
+        padding: 4px 10px;
+        opacity: 0.96;
+        margin: auto;
+
+        span {
+            width: calc(100% - 20px);
+            border: none;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            color: #BDBDBD;
+        }
+
+        i {
+            color: #bdbdbd;
+            opacity: 0.96;
+        }
+    }
+
+    .head-left {
+        position: absolute;
+        right: 36px;
+        display: flex;
+        align-items: center;
+
+        .notification {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-info {
+            display: flex;
+            width: 200px;
+            margin-left: 20px;
+
+            .user-logo {
+                width: 32px;
+                height: 32px;
+
+                img {
+                    border-radius: 50%;
+                }
+            }
+
+            .user-name {
+                width: 155px;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                color: #000;
+                line-height: 32px;
+                margin-left: 8px;
+            }
+        }
+
+        .menu {}
+    }
+
+}
+
+.contact {}
+
+.trending {}
+
+.tour {
+    padding: 120px;
+
+    .tour-title {
+        margin-bottom: 64px;
+        span {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 52px;
+            color: #080D34;
+        }
+    }
+}
+
+.review {}
+
+.partner {}
+
+@media only screen and (max-width: 600px) {
+    .head-container {
+        .search {
+            span {
+                display: none;
+            }
+        }
+
+        .head-left {
+            display: none;
+        }
+    }
+}

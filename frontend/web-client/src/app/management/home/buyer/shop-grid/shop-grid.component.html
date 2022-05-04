@@ -1,0 +1,68 @@
+<div class="section__content">
+    <div class="container-fluid">
+        <div class="row">
+            <span class="p-input-icon-right">
+                <i class="pi pi-search"></i>
+                <input type="text" pInputText
+                placeholder="Tìm cửa hàng"
+                [(ngModel)]="keyword"
+                (keyup.enter)="searchShops()" />
+            </span>
+        </div>
+        <div class="row mt-1" *ngIf="allShops | async as allShops">
+            <p-dataView #dtv [value]="allShops" [paginator]="true" [rows]="9" filterBy="name" layout="grid">
+                <ng-template let-shop pTemplate="gridItem">
+                    <div class="col-3">
+                        <div class="shop-m" (click)="showShopDetail(shop)">
+                            <div class="shop-m__thumb">
+        
+                                <a class="aspect aspect--bg-grey aspect--square u-d-block"
+                                    (click)="showShopDetail(shop)">
+                                    <img class="aspect__img" 
+                                        width="300"
+                                        height="200"
+                                        [src]="shop.properties.shopInfo.imageUrl" alt="">
+                                </a>
+                                
+                            </div>
+                            <div class="shop-m__content">
+                                <div class="shop-m__quick-look">
+                                    
+                                </div>
+                                <div class="shop-m__info-name">
+                                    {{shop.properties.shopInfo.name}}
+                                </div>
+                                <div class="shop-m__info">
+                                    Địa chỉ: {{shop.properties.shopInfo.address}}
+                                </div>
+                                <div class="shop-m__info">
+                                    Liên hệ: {{shop.properties.shopInfo.phoneNumber}}
+                                </div>
+                                <div class="shop-m__rating gl-rating-style">
+                                    <i [ngClass]="shop.rate > 0?'fas fa-star':'far fa-star'"></i>
+                                    <i [ngClass]="shop.rate > 1?'fas fa-star':'far fa-star'"></i>
+                                    <i [ngClass]="shop.rate > 2?'fas fa-star':'far fa-star'"></i>
+                                    <i [ngClass]="shop.rate > 3?'fas fa-star':'far fa-star'"></i>
+                                    <i [ngClass]="shop.rate > 4?'fas fa-star':'far fa-star'"></i>
+                                </div>
+                                <div class="shop-m__hover">
+                                    <div class="shop-m__preview-description">
+                                        <span></span>
+                                    </div>
+                                    <div class="shop-m__wishlist">
+                                        
+                                    </div>
+                                </div>
+                                <div class="shop-m__add-cart">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-dataView>
+        </div>
+    </div>
+</div>
+<app-cart-list-order></app-cart-list-order>
+<app-cart></app-cart>

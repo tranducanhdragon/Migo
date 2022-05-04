@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{E0022152-6D56-49C5-A367-90A65F9900F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework", "EntityFramework\EntityFramework.csproj", "{51455E68-B02B-4C90-A5BE-F445C734EE18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{A0596BB4-2834-4482-9C1D-DBD9C44B35EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0022152-6D56-49C5-A367-90A65F9900F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0022152-6D56-49C5-A367-90A65F9900F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0022152-6D56-49C5-A367-90A65F9900F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0022152-6D56-49C5-A367-90A65F9900F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51455E68-B02B-4C90-A5BE-F445C734EE18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51455E68-B02B-4C90-A5BE-F445C734EE18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51455E68-B02B-4C90-A5BE-F445C734EE18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51455E68-B02B-4C90-A5BE-F445C734EE18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0596BB4-2834-4482-9C1D-DBD9C44B35EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0596BB4-2834-4482-9C1D-DBD9C44B35EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0596BB4-2834-4482-9C1D-DBD9C44B35EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0596BB4-2834-4482-9C1D-DBD9C44B35EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB943EDF-9435-45CD-A5CB-D1688416FBF8}
+	EndGlobalSection
+EndGlobal

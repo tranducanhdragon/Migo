@@ -1,0 +1,112 @@
+<p-tabView >        
+  <p-tabPanel header="Thông tin cơ bản">
+    <div class="app-content">
+      <!--====== Section 1 ======-->
+      <div class="u-s-p-y-10">
+        <div class="container">
+          <ng-container *ngIf="shopDetail.properties">
+            <div class="row">
+              <div class="col-lg-5 pr-3">
+                <img 
+                  [src]="shopDetail.properties?.shopInfo?.imageUrl?shopDetail.properties.shopInfo?.imageUrl:'https://thumbs.dreamstime.com/z/shop-building-colorful-isolated-white-33822015.jpg'"
+                  width="100%"  />
+                
+              </div>
+              <div class="col-lg-7 mb-4">
+                <!--====== Product Right Side Details ======-->
+                <div class="pd-detail">
+                  
+                  <div>
+                    <div class="pd-detail__inline">
+                      <input pInputTextarea class="pd-detail__price input-bd" [(ngModel)]="shopDetail.name"
+                      ngDefaultControl />
+                    </div>
+                  </div>
+                  <div class="u-s-m-b-15">
+                    <div class="pd-detail__rating gl-rating-style">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                      ><i class="fas fa-star-half-alt"></i>
+                    </div>
+                  </div>
+                
+        
+                  <div class="u-s-m-b-15">
+                    <div class="pd-detail__inline">
+                      <span class="pd-detail__click-wrap"
+                        ><i class="fas fa-phone u-s-m-r-6"></i>
+                        Số điện thoại: 
+                        <input class="input-bd"  
+                          pInputText [(ngModel)]="shopDetail.properties.shopInfo.phoneNumber"  
+                          ngDefaultControl/>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="u-s-m-b-15">
+                    <div class="pd-detail__inline">
+                      <span class="pd-detail__click-wrap">
+                        <i class="fas fa-envelope u-s-m-r-6"></i>
+                        Email or Website: 
+                        <input class="input-bd"  pInputText 
+                          [(ngModel)]="shopDetail.properties.ownerInfo.email"  
+                          ngDefaultControl/>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="u-s-m-b-15">
+                    <div class="pd-detail__inline">
+                      <i class="fas fa-map-marker u-s-m-r-6"></i>
+                      Địa chỉ: 
+                      <input class="pd-detail__click-wrap input-bd" 
+                        pInputText [(ngModel)]="shopDetail.properties.shopInfo.address" 
+                        ngDefaultControl/>
+                    </div>
+                  </div>
+                  <div class="u-s-m-b-15">
+                    <div class="pd-detail__inline">
+                      <span class="pd-detail__click-wrap">
+                        
+                      </span>
+                    </div>
+                  </div>
+                  <div class="u-s-m-b-15">
+                    <div class="pd-detail__inline">
+                      <span class="pd-detail__click-wrap"
+                        >
+                        <!-- <i class="fas fa-birthday-cake u-s-m-r-6"></i> -->
+        
+                        <!-- <a href="signin.html">Ngày sinh: 0987654321</a> -->
+                      </span>
+                    </div>
+                  </div>
+        
+                  <div class="u-s-m-b-15">
+                    <span class="pd-detail__preview-desc">
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <!--====== End - Section 1 ======-->
+      <div class="u-s-p-b-60">
+        
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                      <div>
+                        <span class="pd-detail__name"></span>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+      </div>
+    </div>
+  </p-tabPanel>
+</p-tabView>

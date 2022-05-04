@@ -1,0 +1,16 @@
+:host ::ng-deep .p-button-rounded .pi-check {
+  color: green;
+}
+
+:host ::ng-deep .p-button-rounded .pi-times {
+    color:red;
+  }
+
+  :host ::ng-deep .p-button-rounded .pi-pencil {
+    color:blue;
+  }
+
+:host ::ng-deep .p-paginator .p-paginator-first{
+  background-color: #fff;
+  color: #000;
+}

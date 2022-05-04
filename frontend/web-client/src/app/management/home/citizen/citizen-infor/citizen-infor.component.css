@@ -1,0 +1,38 @@
+.row{
+    margin: 0;
+}
+table thead th{
+    font-weight: 600;
+    color: #495057;
+}
+tr, th, td{
+    justify-content: center !important;
+    align-items: center !important;
+    vertical-align: middle !important;
+}
+.btn-outline-primary {
+    color: #000000;
+    border-color: #000000;
+}
+a{
+    color: #000000;
+}
+.dropdown-toggle {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+    border-color: #ced4da !important;
+}
+.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgb(66, 66, 66) !important;
+}
+small{
+    color: red;
+}
+:host ::ng-deep .p-input-icon-right{
+    top: 3px;
+    left: 15px;
+}
+:host ::ng-deep .p-inputtext{
+    height: 38px;
+    padding: 0.375rem 0.75rem;
+}

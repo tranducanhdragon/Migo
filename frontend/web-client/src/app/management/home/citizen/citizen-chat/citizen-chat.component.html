@@ -1,0 +1,146 @@
+<div [@routerTransition]>
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <h4>{{ "Trò chuyện trực tuyến"}}</h4>
+                </div>
+                <div class="col-6 text-right">
+                    <a class="btn"
+                        [routerLink]="['../citizen-menu']">
+                        <i class="fas fa-arrow-alt-circle-left"></i>
+                        {{"Trở về"}}
+                    </a>
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content-body">
+        <div class="card">
+            <div class="row m-0">
+                <div class="col-2 border border-light">
+                    <div class="left-bar">
+                        <div class="row d-flex justify-content-center m-2">
+                            {{"Danh sách người dùng"}}
+                        </div>
+                        <ng-container *ngFor="let user of usersNotFriend">
+                            <div class="row d-flex justify-content-center m-2">
+                                <div class="user-name"> 
+                                    {{user.userName}}
+                                </div>
+                                <button
+                                    type="button"
+                                    class="btn btn-sm bg-light"
+                                    (click)="addfriend(user)">
+                                    <i [class]="user.state == 3 ? 'fas fa-share' : 'fas fa-user-plus'">
+                                    </i>
+                                </button>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="col-2 border border-light">
+                    <div class="left-bar">
+                        <div class="row d-flex justify-content-center m-2">
+                            {{"Danh sách bạn"}}
+                        </div>
+                        <ng-container *ngFor="let friend of friends | async">
+                            <div class="row friend-box" (click)="getFriendMessage(friend)">
+                                <div> 
+                                    {{friend.userName}}
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="col-8 border border-light">
+                    <div>
+                        <div class="border-bottom">
+                            <div class="d-flex align-items-center p-2">
+                            <div class="position-relative"
+                                *ngIf="selectedFriend">
+                                <img
+                                src='https://th.bing.com/th/id/R.a4d1b5aedb78dab6fa6184297eeb1de0?rik=JRtUo9Qby1Jj2g&riu=http%3a%2f%2fwww.clker.com%2fcliparts%2fd%2fL%2fP%2fX%2fz%2fi%2fno-image-icon-hi.png&ehk=ZDF4rNDhLE6rMjIxYVlnQ1tPHIQ9RKL0RJt3U2SBr5E%3d&risl=&pid=ImgRaw&r=0'
+                                class="rounded-circle mr-1"
+                                width="40"
+                                height="40">
+                            </div>
+                            <div class="flex-grow-1"
+                                *ngIf="selectedFriend">
+                                <strong>{{selectedFriend.userName}}</strong>
+                                <div class="text-muted small">
+                                    <!-- <div class="small"
+                                        *ngIf="selectedFriend.isOnline"><span
+                                        class="fas
+                                        fa-circle chat-online"></span>
+                                        Đang hoạt động
+                                    </div>
+                                    <div class="small"
+                                        *ngIf="!selectedFriend.isOnline"><span
+                                        class="fas
+                                        fa-circle chat-offline"></span>
+                                        Không hoạt động
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div>
+                            </div>
+                            </div>
+                        </div>
+          
+                        <div class="position-relative">
+                            <div #scrollMe class="reflect-inner p-4">
+                                <ng-container *ngFor="let mes of messages">
+                                    <div class="chat-message-right mb-4"
+                                        *ngIf="mes.userId == userLoginInfor.userId">
+                                        <div>
+                                            <img
+                                                src='https://th.bing.com/th/id/R.a4d1b5aedb78dab6fa6184297eeb1de0?rik=JRtUo9Qby1Jj2g&riu=http%3a%2f%2fwww.clker.com%2fcliparts%2fd%2fL%2fP%2fX%2fz%2fi%2fno-image-icon-hi.png&ehk=ZDF4rNDhLE6rMjIxYVlnQ1tPHIQ9RKL0RJt3U2SBr5E%3d&risl=&pid=ImgRaw&r=0'
+                                                class="rounded-circle m-1"
+                                                width="40"
+                                                height="40">
+                                            <div class="d-flex justify-content-center text-muted small text-nowrap m-2">
+                                                {{userLoginInfor.userName}}
+                                            </div>
+                                        </div>
+                                        <div class="user-message" [innerHTML]="mes.value">               
+                                        </div>
+                                    </div>
+                                    <div class="chat-message-left pb-4"
+                                        *ngIf="mes.userId !== userLoginInfor.userId">
+                                        <div>
+                                            <img
+                                                src='https://th.bing.com/th/id/R.a4d1b5aedb78dab6fa6184297eeb1de0?rik=JRtUo9Qby1Jj2g&riu=http%3a%2f%2fwww.clker.com%2fcliparts%2fd%2fL%2fP%2fX%2fz%2fi%2fno-image-icon-hi.png&ehk=ZDF4rNDhLE6rMjIxYVlnQ1tPHIQ9RKL0RJt3U2SBr5E%3d&risl=&pid=ImgRaw&r=0'
+                                                class="rounded-circle m-1"
+                                                width="40" height="40">
+                                            <div class="d-flex justify-content-center text-muted small text-nowrap m-2">
+                                                {{selectedFriend.userName}}
+                                            </div>
+                                        </div>
+                                        <div class="user-message" [innerHTML]="mes.value">
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="flex-grow-0 py-3 px-4 border-top">
+                            <div class="input-group">
+                                <input type="text" class="form-control
+                                text-input"
+                                [(ngModel)]="sendMessageData.message"
+                                placeholder="Gõ tin nhắn ở đây"
+                                (keyup.enter)="sendMessage()">
+                                &nbsp;&nbsp;
+                                <button class="bg-dark text-white"
+                                    (click)="sendMessage()">
+                                    Gửi
+                                </button>                 
+                            </div>               
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

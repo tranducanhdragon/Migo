@@ -1,0 +1,64 @@
+<div class="cart-box">
+    <div class="cart-content"
+        (click)="showCartDialog()" >
+        <div class="cart-content__item">
+            <div class="cart-content__item-description">
+                <i
+                    class="fas fa-shopping-bag"
+                    [ngClass]="isCartDialog?'color-blue':''">
+                </i>
+                <span class="total-item-round">{{lstGoodsCart?.length??0}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="isCartDialog" class="cart-bg">
+    <div class="cart-dialog">
+        <div class="cart-dialog__head">
+            <div class="cart-dialog__title">
+                <h4>
+                    Giỏ hàng của bạn
+                </h4>
+            </div>
+            <div class="cart-dialog__close">
+            <i (click)="showCartDialog()" class="fa fa-times"></i>
+            </div>
+        </div>
+        <div class="cart-dialog__body">
+            <ng-container *ngIf="lstGoodsCart.length > 0, else empty">
+                <div class="card cart-card"
+                    *ngFor="let item of lstGoodsCart">
+                    <div class="cartitem__img">
+                        <img width="200" height="150"
+                         [src]="item.properties?.infoBasic[0]?.data[0]?.url" alt="">
+                    </div>
+                    <div class="cart-item__description">
+                        <div class="cart__description-title">
+                            <h4>{{item.properties?.infoBasic[2]?.value}}</h4>
+                        </div>
+                        <div class="cart__description-content">
+                            <p>
+                            {{item.properties?.infoBasic[3]?.value | shortDescription}} 
+                            </p>
+                        </div>
+                        <div class="cart__description-price">
+                            {{item.quantity}} * {{item.properties?.infoSell[0]?.property?.value | currency:'VND'}}
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #empty>
+                <div class="cart-empty">
+
+                </div>
+            </ng-template>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-checkout">
+                <button class="button-submit" (click)="submitPayment()">Thanh toán</button>
+                <button class="button-remove bg-danger" (click)="removeAllItemCart()">Xóa hết</button>
+            </div>
+        </div>
+    </div>
+</div>
+<p-toast></p-toast>

@@ -1,0 +1,46 @@
+<div style="margin: 20px;">
+    <div class="row">
+      <div style="display: flex;">
+        <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText placeholder="Tìm kiếm sản phẩm" />
+        </span>
+        
+    </div>
+    </div>
+    <p-divider></p-divider>
+    <div>
+      <p-tabView>
+         
+          <p-tabPanel header="Chờ xác nhận">
+            <app-goods-order-table 
+             [itemOrders]="pendingOrders"
+             [ordersState]="1"
+             (refreshData)="getData()">
+            </app-goods-order-table>
+          </p-tabPanel>
+          <p-tabPanel header="Đã xác nhận">
+            <app-goods-order-table
+              [itemOrders]="approvedOrders"
+              [ordersState]="2"
+              (refreshData)="getData()">
+            </app-goods-order-table>
+          </p-tabPanel>
+          <p-tabPanel header="Đã hoàn thành">
+            <app-goods-order-table 
+              [itemOrders]="completedOrders"
+              [ordersState]="3"
+              (refreshData)="getData()">
+            </app-goods-order-table>
+          </p-tabPanel>
+          <p-tabPanel header="Đã hủy">
+            <app-goods-order-table
+              [itemOrders]="refusedOrders"
+              [ordersState]="4"
+              (refreshData)="getData()">
+            </app-goods-order-table>
+          </p-tabPanel>
+      </p-tabView>
+    </div>
+  </div>
+  

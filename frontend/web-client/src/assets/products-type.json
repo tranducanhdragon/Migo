@@ -1,0 +1,70 @@
+{
+	"data": [
+		{
+			"id": "1000",
+			"code": "",
+			"name": "Quần áo",
+			"description": "Quần áo thời trang các loại",
+			"image": "clothes.jpg",
+			"category": "Clothes",
+			"quantity": 24,
+			"inventoryStatus": "",
+			"rating": 5
+		},
+		{
+			"id": "1001",
+			"code": "",
+			"name": "Đồ gia dụng",
+			"description": "Đồ dùng trong nhà",
+			"image": "furnitures.jpg",
+			"category": "Furnitures",
+			"quantity": 61,
+			"inventoryStatus": "",
+			"rating": 4
+		},
+		{
+			"id": "1002",
+			"code": "",
+			"name": "Đồ ăn, uống",
+			"description": "Đồ ăn vặt, đồ uống, cafe",
+			"image": "fooddrink.jpg",
+			"category": "FoodDrink",
+			"quantity": 2,
+			"inventoryStatus": "",
+			"rating": 3
+		},
+		{
+			"id": "1003",
+			"code": "",
+			"name": "Đồ chơi",
+			"description": "Đồ chơi dành cho trẻ em",
+			"image": "toys.jpg",
+			"category": "Toys",
+			"quantity": 25,
+			"inventoryStatus": "",
+			"rating": 5
+		},
+		{
+			"id": "1004",
+			"code": "",
+			"name": "Giày dép",
+			"description": "Giày dép nam nữ các loại",
+			"image": "shoes.jpg",
+			"category": "Shoes",
+			"quantity": 73,
+			"inventoryStatus": "",
+			"rating": 4
+		},
+		{
+			"id": "1005",
+			"code": "",
+			"name": "Đồ điện tử",
+			"description": "Máy chơi game, thiết bị điện tử",
+			"image": "electricity.jpg",
+			"category": "Electricity",
+			"quantity": 0,
+			"inventoryStatus": "",
+			"rating": 4
+		}
+	]
+}

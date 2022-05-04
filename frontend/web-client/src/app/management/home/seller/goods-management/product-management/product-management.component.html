@@ -1,0 +1,32 @@
+<div style="margin: 20px;">
+  <div class="row">
+    <div style="display: flex;">
+      <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input type="text" pInputText placeholder="Tìm kiếm sản phẩm" />
+      </span>
+
+  </div>
+  </div>
+  <p-divider></p-divider>
+  <div>
+    <p-tabView>
+
+        <p-tabPanel header="Tất cả">
+          <app-list-product [itemProducts]="allProducts"></app-list-product>
+        </p-tabPanel>
+        <p-tabPanel header="Đang hoạt động">
+          <app-list-product [itemProducts]="activeProducts"></app-list-product>
+        </p-tabPanel>
+        <p-tabPanel header="Vi phạm">
+          <app-list-product [itemProducts]="refuseProducts"></app-list-product>
+        </p-tabPanel>
+        <p-tabPanel header="Đã ẩn">
+          <app-list-product [itemProducts]="disableProducts"></app-list-product>
+        </p-tabPanel>
+        <p-tabPanel header="Chưa được xác nhận">
+          <app-list-product [itemProducts]="newProducts"></app-list-product>
+        </p-tabPanel>
+    </p-tabView>
+  </div>
+</div>

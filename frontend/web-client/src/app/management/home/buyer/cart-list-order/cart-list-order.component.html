@@ -1,0 +1,113 @@
+<div class="cartlist-box">
+    <div class="cartlist-content"
+        (click)="showCartLstOrder()">
+        <div class="cartlist-content__item">
+            <div class="cartlist-content__item-description">
+                <i class="fa fa-list"
+                    [ngClass]="isCartLstOrder?'color-blue':''">
+                </i>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="isCartLstOrder" class="cartlist-bg">
+    <div class="cartlist-dialog">
+        <div class="cartlist-dialog__head">
+            <div class="cartlist-dialog__title">
+                <h4>
+                    Danh sách đơn hàng của bạn
+                </h4>
+            </div>
+            <div class="cartlist-dialog__close">
+                <i (click)="showCartLstOrder()" class="fa fa-times"></i>
+            </div>
+        </div>
+        <div class="cartlist-dialog__body">
+            <ng-container *ngIf="lstOrders.length > 0, else empty">
+                <p-table
+                    #dt
+                    [value]="lstOrders"
+                    [rows]="10"
+                    [paginator]="true"
+                    [globalFilterFields]="['name']"
+                    [rowHover]="true"
+                    dataKey="id"
+                    selectionMode="single"
+                    currentPageReportTemplate="Hiển thị từ {first} đến {last}
+                    trong tổng số
+                    {totalRecords} bản ghi"
+                    [showCurrentPageReport]="true"
+                    >
+                    <ng-template pTemplate="caption">
+                        <div class="p-d-flex p-ai-center p-jc-between">
+                        <div class="row">
+                            <div class="col-sm-8">
+                            <h5 class="p-m-0">Danh sách đơn</h5>
+                            </div>
+                        </div>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Tổng tiền</th>
+                            <th style="width: 140px;">Tình trạng</th>
+                            <th>Ngày đặt</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-order>
+                        <tr>
+                            <td>{{order.properties?.infoBasic[2]?.value}}</td>
+                            <td>{{order.quantity}}</td>
+                            <td>
+                                {{(order.properties?.infoSell[0]?.property?.value * order.quantity) | currency:'VND'}}
+                            </td>
+                            <td style="width: 140px;">
+                                <div [ngSwitch]="order.state">
+                                    <span *ngSwitchCase="1">
+                                        <p-badge [value]="'Chờ xác nhận'" severity="warning"></p-badge>
+                                    </span>
+                                    <span *ngSwitchCase="2">
+                                        <p-badge [value]="'Đã xác nhận'"></p-badge>
+                                    </span>
+                                    <span *ngSwitchCase="3">
+                                        <p-badge [value]="'Đã hoàn thành'" severity="success"></p-badge>
+                                    </span>
+                                    <span *ngSwitchCase="4">
+                                        <p-badge [value]="'Đã huỷ'" severity="danger"></p-badge>
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                {{order.orderDate | date:'short'}}
+                            </td>
+                            <td>
+                                <button
+                                *ngIf="order.state == 1"
+                                pButton
+                                pRipple
+                                icon="pi pi-trash"
+                                class="p-button-rounded p-button-danger"
+                                (click)="removeItemInCart(order)"
+                                ></button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </ng-container>
+            <ng-template #empty>
+                <div class="cartlist-empty">
+
+                </div>
+            </ng-template>
+        </div>
+        <div class="cartlist-footer">
+            <div class="cartlist-checkout">
+                <!-- <button class="button-submit" (click)="submitPayment()">Cập nhật</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+<p-toast></p-toast>

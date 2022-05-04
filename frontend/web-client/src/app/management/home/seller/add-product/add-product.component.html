@@ -1,0 +1,388 @@
+<div style="background-color: #f6f6f6;">
+  <div *ngIf="!preInfo">
+    <p-panel header="Thêm 1 sản phẩm mới">
+      <div style="margin: 20px;">
+        <div class="card">
+          <p-dataView #dv [value]="productTypes" 
+            [paginator]="true" [rows]="9" 
+            filterBy="name"
+            layout="grid">
+              <ng-template pTemplate="header">
+                  <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+                      <!-- <p-dropdown [options]="sortOptions" placeholder="Sort By Price" 
+                          (onChange)="onSortChange($event)" 
+                          styleClass="p-mb-2 p-mb-md-0">
+                      </p-dropdown> -->
+                      <span class="p-input-icon-left p-mb-2 p-mb-md-0">
+                          <!-- <i class="pi pi-search"></i> -->
+                          <!-- <input type="search" pInputText placeholder="Search by Name" (input)="dv.filter($event.target.value)"> -->
+                      </span>
+                      <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                  </div>
+              </ng-template>
+              <ng-template let-productType pTemplate="listItem">
+                  <div class="p-col-12">
+                      <div class="product-list-item" (click)="next(productType)">
+                          <img [src]="'assets/image/' + productType.image" [alt]="productType.name"/>
+                          <div class="product-list-detail">
+                              <div class="product-name">{{productType.name}}</div>
+                              <div class="product-description">{{productType.description}}</div>
+                              <!-- <p-rating [ngModel]="productType.rating" [readonly]="true" [cancel]="false"></p-rating> -->
+                              <i class="pi pi-tag product-category-icon"></i>
+                              <!-- <span class="product-category">
+                                  {{productType.category}}
+                              </span> -->
+                          </div>
+                          <div class="product-list-action">
+                              <!-- <span class="product-price">${{product.price}}</span> -->
+                              <!-- <p-button icon="pi pi-shopping-cart" label="Add to Cart" 
+                                  [disabled]="product.inventoryStatus === 'OUTOFSTOCK'">
+                              </p-button> -->
+                              <span [class]="'product-badge status-' + productType.inventoryStatus.toLowerCase()">
+                                  {{productType.inventoryStatus}}
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+              </ng-template>
+              <ng-template let-productType pTemplate="gridItem">
+                  <div class="p-col-12 p-md-4">
+                      <div class="product-grid-item card" (click)="next(productType)">
+                          <div class="product-grid-item-top">
+                              <!-- <div>
+                                  <i class="pi pi-tag product-category-icon"></i>
+                                  <span class="product-category">{{productType.category}}</span>
+                              </div> -->
+                              <span [class]="'product-badge status-' + productType.inventoryStatus.toLowerCase()">
+                                  {{productType.inventoryStatus}}
+                              </span>
+                          </div>
+                          <div class="product-grid-item-content">
+                              <img [src]="'assets/image/' + productType.image" [alt]="productType.name"/>
+                              <div class="product-name">{{productType.name}}</div>
+                              <div class="product-description">{{productType.description}}</div>
+                              <!-- <p-rating [ngModel]="productType.rating" [readonly]="true" [cancel]="false"></p-rating> -->
+                          </div>
+                          <div class="product-grid-item-bottom">
+                              <!-- <span class="product-price">${{product.price}}</span> -->
+                              <!-- <p-button icon="pi pi-shopping-cart" 
+                                  [disabled]="product.inventoryStatus === 'OUTOFSTOCK'">
+                              </p-button> -->
+                          </div>
+                      </div>
+                  </div>
+              </ng-template>
+          </p-dataView>
+        </div>
+        <br />
+      </div>
+    </p-panel>
+  </div>
+  <div *ngIf="preInfo">
+    <!-- <app-detail-product [id]="selectType.data.id"></app-detail-product> -->
+    <ng-container *ngIf="itemView">
+      <ng-container *ngIf="itemView.properties.infoBasic">
+        <div class="card">
+          <div class="card-body" style="margin: 20px;">
+            <h2>Thông tin cơ bản</h2>
+            <br />
+  
+            <div class="row" *ngIf="isUpdate != 'true'">
+              <div class="col-3">
+                Danh mục sản phẩm
+              </div>
+              <div class="col-9">
+                {{typeProduct.name}}
+              </div>
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-3">
+                Hình ảnh sản phẩm
+              </div>
+              <div class="col-9">
+                <div class="row">
+                    <div
+                      class="col-sm-2 img-item"
+                      *ngFor="let image of itemView.properties.infoBasic[0]?.data">
+                      <div *ngIf="image.url !== ''; else add">
+                        <img
+                          [src]="image.url"
+                          style="height: 6rem; width: 6rem; position: relative;"
+                        />
+                        <i
+                          class="fas fa-times-circle"
+                          style="position: absolute; right: 45px; top: -6px;"
+                          (click)="deleteLocalFile(image)"
+                        ></i>
+                      </div>
+    
+                      <ng-template #add>
+                        <div
+                          tabindex="0"
+                          class="wm741mh"
+                          style="--wm741mh-0: pointer; --wm741mh-2: 1;"
+                        >
+                          <input
+                            type="file"
+                            (change)="uploadImage($event, image)"
+                            style="display: none;"
+                            #selectFile
+                            accept="image/*"
+                          />
+                          <button
+                            type="button"
+                            class="btn btn-rounded"
+                            style="background-color: white;"
+                            (click)="selectFile.click()"
+                          >
+                            <i
+                              class="pi pi-plus-circle"
+                              style="font-size: 1.5rem; color: #2196f3;"
+                            ></i>
+                          </button>
+                        </div>
+                      </ng-template>
+    
+                      <div style="color: black;">{{ image.name }}</div>
+                    </div>
+                    <!-- <div class="col-sm-2 img-item">
+                       <img src='https://cdn.tgdd.vn/Products/Images/4728/242566/camera-ip-360-do-3mp-tp-link-tapo-c210-2-1-org.jpg' width="80%">
+                       <div>Hình ảnh 1</div>
+                     </div> -->
+                </div>
+              </div>
+            </div>
+            <br />
+            <!-- <div class="row">
+              <div class="col-3">
+                Video sản phẩm
+              </div>
+              <div class="col-1" *ngIf="video.videoUrl !== ''; else addVideo">
+                <video
+                  [src]="video.videoUrl"
+                  style="height: 6rem; width: 6rem; position: relative;"
+                >
+                </video>
+                <i
+                  class="fas fa-times-circle"
+                  style="position: absolute; right: 0px; top: -6px;"
+                  (click)="deleteLocalFile(video)"
+                ></i>
+              </div>
+              <ng-template #addVideo>
+                <div class="col-1">
+                  <p-fileUpload mode="basic" name="myfile[]"></p-fileUpload>
+                  <div
+                    tabindex="0"
+                    class="wm741mh"
+                    style="--wm741mh-0: pointer; --wm741mh-2: 1;"
+                  >
+                    <input
+                      type="file"
+                      (change)="uploadVideo($event, video)"
+                      style="display: none;"
+                      #selectFile
+                      accept="video/*"
+                    />
+                    <button
+                      type="button"
+                      class="btn btn-rounded"
+                      style="background-color: white;"
+                      (click)="selectFile.click()"
+                    >
+                      <i
+                        class="pi pi-plus-circle"
+                        style="font-size: 1.5rem; color: #2196f3;"
+                      ></i>
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
+              <div class="col-8">
+                <ul>
+                  <li>
+                    1. Kích thước: Tối đa 30Mb, độ phân giải không vượt quá
+                    1280x1280px
+                  </li>
+                  <li>2. Độ dài: 10s-60s</li>
+                  <li>3. Định dạng: MP4 (không hỗ trợ vp9)</li>
+                  <li>
+                    4. Lưu ý: sản phẩm có thể hiển thị trong khi video đang được
+                    xử lý. Video sẽ tự động hiển thị sau khi đã xử lý thành công.
+                  </li>
+                </ul>
+              </div>
+            </div> -->
+            <br />
+            <div class="row">
+              <div class="col-3">
+                Tên sản phẩm
+                <span class="text-danger">*</span>
+              </div>
+              <div class="col-9">
+                <div class="p-inputgroup">
+                  <input
+                    type="text"
+                    pInputText
+                    placeholder="Nhập vào"
+                    [(ngModel)]="itemView.properties.infoBasic[2].value"/>
+                  <span class="p-inputgroup-addon">0/120</span>
+                </div>
+                <small class="p-invalid" *ngIf="!itemView.properties.infoBasic[2].value && isSubmit">
+                  Tên không được để trống!
+                </small>
+              </div>
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-3">
+                Mô tả sản phẩm
+                <span class="text-danger">*</span>
+              </div>
+              <div class="col-9">
+                <div class="p-inputgroup">
+                  <textarea
+                    [rows]="5"
+                    [cols]="150"
+                    pInputTextarea
+                    autoResize="autoResize"
+                    [(ngModel)]="itemView.properties.infoBasic[3].value"
+                  ></textarea>
+                </div>
+                <small class="p-invalid" *ngIf="!itemView.properties.infoBasic[3].value && isSubmit">
+                  Mô tả không được để trống!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <br />
+      <ng-container *ngIf="itemView.properties.infoDetail">
+        <div class="card">
+          <div class="card-body" style="margin: 20px;">
+            <h2>Thông tin chi tiết</h2>
+            <br />
+            <div class="row">
+              <ng-container *ngFor="let detail of itemView.properties.infoDetail">
+                <div class="col-6 mb-3">
+                  <div class="row">
+                    <div class="col-3 d-flex justify-content-left align-items-center">{{ detail.property.name }}</div>
+                    <div class="col-8">
+                      <div class="p-inputgroup" >
+                        <input
+                          type="text"
+                          [(ngModel)]="detail.property.value"
+                          pInputText
+                          placeholder="Nhập vào"
+                        />
+                      </div>
+                      <!-- <small class="p-invalid" *ngIf="!detail.property.value && isSubmit">
+                        Thuộc tính không được để trống!
+                      </small> -->
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+            <br />
+          </div>
+        </div>
+      </ng-container>
+      <br />
+      <ng-container *ngIf="itemView.properties.infoSell">
+        <div class="card">
+          <div class="card-body" style="margin: 20px;">
+            <h2>Thông tin bán hàng</h2>
+            <br />
+            <div class="row">
+              <div
+                class="col-sm-12"
+                *ngFor="let item of itemView.properties.infoSell;" >
+                <div class="row">
+                  <div class="col-3">{{ item.property.name }}</div>
+                  <div class="col-8">
+                    <div class="p-inputgroup">
+                      <p-inputNumber
+                      *ngIf="item.order === 2"
+                      [(ngModel)]="item.property.value" mode="currency" currency="VND" locale="vn-VN">
+                      </p-inputNumber>
+                      <input
+                        *ngIf="item.order === 3"
+                        type="text"
+                        [(ngModel)]="item.property.value"
+                        pInputText
+                        placeholder="Nhập vào"
+                      />
+                    </div>
+                    <!-- <small class="p-invalid" *ngIf="!item.property.value && isSubmit">
+                      Thuộc tính không được để trống!
+                    </small> -->
+                  </div>
+                </div>
+                <br />
+              </div>
+            </div>
+            <br />
+          </div>
+        </div>
+      </ng-container>
+      <br />
+      <ng-container *ngIf="itemView.properties.infoOther">
+        <div class="card">
+          <div class="card-body" style="margin: 20px;">
+            <h2>Thông tin khác</h2>
+            <br />
+            <div class="row">
+              <div
+                class="col-sm-12"
+                *ngFor="let item of itemView.properties.infoOther"
+              >
+                <div class="row">
+                  <div class="col-3">{{ item.property.name }}</div>
+                  <div class="col-8">
+                    <div class="p-inputgroup" >
+                      <input
+                        type="text"
+                        [(ngModel)]="item.property.value"
+                        pInputText
+                        placeholder="Nhập vào"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <br />
+              </div>
+            </div>
+            <br />
+          </div>
+        </div>
+      </ng-container>
+      <br />
+      <div class="card">
+        <div class="card-body" style="margin: 20px;">
+        <div class="row text-right">
+          <button
+            pButton
+            pRipple
+            (click)="submitAddProduct(itemView)"
+            class="p-button p-button-primary"
+          >
+            Lưu
+          </button>
+          &nbsp;
+          <button
+            pButton
+            pRipple
+            (click)="cancel()"
+            class="p-button p-button-danger"
+          >
+            Hủy
+          </button>
+        </div>
+      </div>
+      </div>
+    </ng-container> 
+  </div>
+</div>

@@ -1,0 +1,24 @@
+.loading{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(108 108 108 / 40%);
+    img{
+        width: 60px;
+        height: 60x;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: rotate 2s linear infinite
+    }
+    @keyframes rotate {
+        from{
+            transform: rotate(0deg);
+        }
+        to{
+            transform: rotate(360deg);
+        }    
+    }
+}

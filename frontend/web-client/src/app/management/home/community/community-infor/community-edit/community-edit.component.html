@@ -1,0 +1,59 @@
+<!-- popup-->
+<div class="modal-header">
+    <h4 class="modal-title">Thông tin dịch vụ</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label>Ảnh đại diện</label>
+                <div class="custom-file">
+                    <input 
+                        type="file" 
+                        class="custom-file-input"
+                        (change)="uploadImage($event.target)">
+                    <label class="custom-file-label">{{fileTitle}}</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Tên dịch vụ</label>
+                <input
+                    [(ngModel)]="community.serviceName"
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Tên dịch vụ">
+            </div>
+            <div class="form-group">
+                <label>Mô tả</label>
+                <br>
+                <textarea [(ngModel)]="community.description" class="textarea-style">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label>Giá tiền/ giờ</label>
+                <input
+                    [(ngModel)]="community.servicePrice"
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Giá tiền dịch vụ /giờ">
+            </div>
+            <div class="form-group">
+                <label>Trạng thái</label>
+                <ui-switch
+                    size="small"
+                    switchColor="#c0c0c0"
+                    defaultBgColor="#f8857d"
+                    color="#76b765"
+                    class="form-control" 
+                    [(ngModel)]="community.isActive">
+                </ui-switch>
+            </div>
+    </div>
+    
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn bg-light" (click)="submitEditedCommunity(community)">Sửa</button>
+</div>

@@ -1,0 +1,46 @@
+<div [@routerTransition]>
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6">
+            <h4 style="margin: 1rem;">
+              {{ 'Kiểm duyệt kinh doanh' }}
+            </h4>
+          </div>
+          <div class="col-6 text-right">
+          </div>
+        </div>
+      </div>
+    </section>  
+    <section class="content px-2">
+      <p-tabView>
+        <p-tabPanel header="Kiểm duyệt cửa hàng">
+          <p-tabView>
+            <p-tabPanel header="Cửa hàng mới">
+              <app-table-object [params]="params1"></app-table-object>
+            </p-tabPanel>
+            <p-tabPanel header="Cửa hàng đã duyệt">
+              <ng-container>
+                <app-table-object [params]="params2"></app-table-object>
+              </ng-container>
+            </p-tabPanel>
+            <p-tabPanel header="Cửa hàng yêu cầu chỉnh sửa">
+              <ng-container>
+                <app-table-object [params]="params3"></app-table-object>
+              </ng-container>
+            </p-tabPanel>
+            <p-tabPanel header="Cửa hàng ngừng hoạt động">
+              <ng-container>
+                <app-table-object [params]="params4"></app-table-object>
+              </ng-container>
+            </p-tabPanel>
+          </p-tabView>
+        </p-tabPanel>
+        <p-tabPanel header="Kiểm duyệt mặt hàng">
+          <app-table-item></app-table-item>
+        </p-tabPanel>
+      </p-tabView>
+      <p-toast position="bottom-right"></p-toast>
+    </section>
+  </div>
+  
