@@ -11,7 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { CommonModule } from '@angular/common';
 import { AuthInterceptor } from 'src/auth/auth.intercepter';
-import { CommunityService } from 'src/service/community/community.service';
+import { TourService } from 'src/service/community/community.service';
 import { UiSwitchModule } from 'ngx-toggle-switch';
 import { RouterModule } from '@angular/router';
 import { MessageService } from 'primeng/api';

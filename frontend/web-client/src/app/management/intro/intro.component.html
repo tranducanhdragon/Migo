@@ -2,7 +2,11 @@
 <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
     <div class="head-container">
         <div class="logo">
-            <img src="/assets/image/logo.png" alt="">
+            <img class="letter-m" src="/assets/logo/logo-m.png" alt="">
+            <img class="letter-i" src="/assets/logo/logo-i.png" alt="">
+            <img class="letter-i1" src="/assets/logo/logo-i1.png" alt="">
+            <img class="letter-g" src="/assets/logo/logo-g.png" alt="">
+            <img class="letter-o" src="/assets/logo/logo-o.png" alt="">
         </div>
         <div class="search">
             <span>Search</span>
@@ -58,9 +62,9 @@
                     <img width="350" height="400" class="img-fluid" [src]="'/assets/image/p1.png'" alt="alternative">
                 </div> <!-- end of image-container -->
             </div> <!-- end of col -->
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="text-container">
-                    <h3>Tailor-made tours just for you</h3>
+                    <h2>Tailor-made tours just for you</h2>
                     <p>
                         We believe your travel journey to be
                         fulfilling when it is customized as what
@@ -78,9 +82,9 @@
 <div class="basic-1">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="text-container">
-                    <h3>Reasonable price, premium quality</h3>
+                    <h2>Reasonable price, premium quality</h2>
                     <p>
                         Traveling is an incredible experience
                         for anyone at any time. We love to inspire
@@ -93,7 +97,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="image-container">
+                <div class="image-container" style="padding-top: 80px;">
                     <img width="350" height="400" class="img-fluid" [src]="'/assets/image/p2.png'" alt="alternative">
                 </div>
             </div>
@@ -108,9 +112,9 @@
                     <img width="350" height="400" class="img-fluid" [src]="'/assets/image/p3.png'" alt="alternative">
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="text-container">
-                    <h3>Excellent customer service</h3>
+                    <h2>Excellent customer service</h2>
                     <p>
                         Every customer has a different travel expectation.
                         By listening to your wish, we’ll be the
@@ -144,20 +148,32 @@
     </div>
     <div class="row">
         <ng-container *ngIf="tours">
-            <div *ngFor="let tour of tours" class="col-4">
+            <div *ngFor="let tour of tours" class="col-4" style="display: flex; justify-content: center;">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="/assets/image/tour1.png" alt="Card image cap">
+                    <img class="card-img-top" [src]="tour.tourImage" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">{{tour.tourName}}</h5>
+                        <div class="location-title">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>{{tour.tourLocation}}</span>
+                        </div>
+                        <h4 class="card-title">{{tour.tourName}}</h4>
                         <p class="card-text">
-                            Zannier Hotels Bai San Coral is a
-                            luxury resort hidden in a natural conservation space..
+                            {{tour.tourDescription}}
                         </p>
+                        <div class="tour-guide">
+                            <div class="guide-icon">
+                                <img [src]="tour.tourGuideImage" alt="">
+                            </div>
+                            <div class="guide-name">
+                                {{tour.tourGuideName}}
+                            </div>
+                        </div>
                     </div>
                     <div class="card-footer text-muted">
                         <div class="row">
                             <div class="col-6">
-                                <span>From {{tour.tourPrice}}/pax</span>
+                                From:&nbsp;
+                                <span> ${{tour.tourPrice}}/pax</span>
                             </div>
                             <div class="col-6">
                                 <span>{{tour.tourTime}}</span>
@@ -179,39 +195,72 @@
 <!-- Footer-->
 <footer class="footer text-center">
     <div class="container">
-        <div class="row">
-            <!-- Footer Location-->
-            <div class="col-lg-4 mb-5 mb-lg-0">
-                <h4 style="color: #fff;" class="text-uppercase mb-4">Địa chỉ</h4>
-                <p style="color: #fff;" class="lead mb-0">
-                    Hà Nội - Việt Nam
-                    <br />
+        <div class="row" style="height: 290px;">
+            <div class="col-4 mb-5 mb-lg-0">
+                <div class="logo">
+                    <img class="letter-m" src="/assets/logo/logo-m.png" alt="">
+                    <img class="letter-i" src="/assets/logo/logo-i.png" alt="">
+                    <img class="letter-i1" src="/assets/logo/logo-i1.png" alt="">
+                    <img class="letter-g" src="/assets/logo/logo-g.png" alt="">
+                    <img class="letter-o" src="/assets/logo/logo-o.png" alt="">
+                </div>
+                <p class="description">
+                    We would love to hear more from you.
+                    If you have any questions or simply
+                    want to send us some feedback, please
+                    email to
                 </p>
-            </div>
-            <!-- Footer Social Icons-->
-            <div class="col-lg-4 mb-5 mb-lg-0">
-                <h4 style="color: #fff;" class="text-uppercase mb-4">Về trang chủ</h4>
-                <a class="btn btn-outline-light btn-social mx-1"><i class="fab fa-fw fa-facebook-f"></i></a>
-                <a class="btn btn-outline-light btn-social mx-1"><i class="fab fa-fw fa-twitter"></i></a>
-                <a class="btn btn-outline-light btn-social mx-1"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                <a class="btn btn-outline-light btn-social mx-1"><i class="fab fa-fw fa-dribbble"></i></a>
-            </div>
-            <!-- Footer About Text-->
-            <div class="col-lg-4">
-                <h4 style="color: #fff;" class="text-uppercase mb-4">Về quy mô</h4>
-                <p style="color: #fff;" class="lead mb-0">
-                    Dự án startup của sinh viên
-                    <a></a>
+                <p class="email">
+                    <i class="fa fa-envelope"></i>
+                    Marketing@migo.travel
                 </p>
+                <div class="social">
+                    <a class="btn btn-outline"><i class="fab fa-fw fa-facebook-f"></i></a>
+                    <a class="btn btn-outline"><i class="fab fa-fw fa-instagram"></i></a>
+                    <a class="btn btn-outline"><i class="fab fa-fw fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-8 mb-5 mb-lg-0">
+                <div class="row" style="padding-top: 20px;">
+                    <div class="col-4">
+                        <div class="title">About Migo</div>
+                        <div class="content">
+                            <span>About Us</span>
+                            <span>Work with us</span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="title">Support</div>
+                        <div class="content">
+                            <span>Terms Of Use</span>
+                            <span>Privacy Policy</span>
+                            <span>Terms & Conditions</span>
+                            <span>Community Standard</span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="title">Migo App</div>
+                        <div class="content">
+                            <div class="img-item">
+                                <img src="/assets/image/appstore.png" 
+                                    style="width: 180px; height: 90px;" alt="">
+                            </div>
+                            <div class="img-item">
+                                <img src="/assets/image/googleplay.png"
+                                    style="width: 180px; height: 90px;" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </footer>
 <!-- Copyright Section-->
-<div class="copyright py-4 text-center text-white">
+<div class="copyright text-center text-white">
     <div class="container">
-        <small>Copyright &copy; by DucAnhTran
-            {{currentYear}}
+        <small>
+            &copy; {{currentYear}} MIGO Beta. All rights reserved.
         </small>
     </div>
 </div>

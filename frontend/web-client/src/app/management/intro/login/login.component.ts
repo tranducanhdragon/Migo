@@ -3,7 +3,7 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { RoleConst } from 'src/environments/constant';
-import { User } from 'src/model/user/User';
+import { User } from 'src/model/user/user';
 import { UserService } from 'src/service/user/user.service';
 
 export enum UserState{

@@ -64,12 +64,15 @@ html {
 .footer {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    background-color: #2c3e50;
-    color: #fff;
+    background-color: #F9F8F2;
+    color: #000;
 }
 
 .copyright {
-    background-color: #1a252f;
+    background-color: #131313;
+	height: 32px;
+    display: flex;
+    align-items: center;
 }
 .bg-secondary{
     background-color: #2c3e50 !important;
@@ -1014,6 +1017,11 @@ input[type='checkbox'] {
 
 .basic-1 .list-unstyled .media-body {
 	margin-left: 0.5rem;
+}
+
+.basic-1 .text-container{
+	width: 380px;
+	margin: auto;
 }
 
 

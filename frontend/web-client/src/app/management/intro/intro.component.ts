@@ -2,7 +2,7 @@ import { ViewportScroller } from '@angular/common';
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
-import { CommunityService } from 'src/service/community/community.service';
+import { TourService } from 'src/service/community/community.service';
 
 @Component({
   selector: 'app-intro',
@@ -17,7 +17,7 @@ export class IntroComponent implements OnInit {
   pauseOnIndicator = false;
   pauseOnHover = true;
   pauseOnFocus = true;
-  images = ["/assets/image/slide.png", "assets/image/slide.png"];
+  images = ["/assets/image/slide.png", "assets/image/slide2.png"];
 
  responsiveOptions:any
 
@@ -25,7 +25,7 @@ export class IntroComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private vps: ViewportScroller,
-    private communityService:CommunityService)
+    private tourService:TourService)
   {
     this.responsiveOptions = [
       {
@@ -73,7 +73,7 @@ export class IntroComponent implements OnInit {
 
   tours:any
   getAllTours(){
-    this.communityService.getAllData('/api/Community/getalltour').subscribe(
+    this.tourService.getAllData('/api/Tour/getalltour').subscribe(
       (res:any) => {
         if(res.success){
           console.log('tour', res.data);

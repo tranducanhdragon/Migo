@@ -15,8 +15,13 @@ namespace EntityFramework.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public long TourId { get; set; }
+        public string TourLocation { get; set; }
         public string TourName { get; set; }
+        public string TourDescription { get; set; }
         public string TourPrice { get; set; }
         public string TourTime { get; set; }
+        public string TourImage{ get; set; }
+        public string TourGuideImage { get; set; }
+        public string TourGuideName { get; set; }
     }
 }

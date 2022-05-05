@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
-import { User } from 'src/model/user/User';
+import { User } from 'src/model/user/user';
 import { UserService } from 'src/service/user/user.service';
 import { UserTokenService } from 'src/shared/observable-service/user/user-token.service';
 
