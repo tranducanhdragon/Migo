@@ -4,8 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home.component';
 import { ToastModule } from 'primeng/toast';
-import { HeaderComponent } from 'src/app/layout/header.component';
-import { FooterComponent } from 'src/app/layout/footer.component';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { ShortDescriptionPipe } from 'src/pipes/description.pipe';
@@ -14,9 +12,6 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    // layout
-    HeaderComponent,
-    FooterComponent,
     //component
     HomeComponent,
 

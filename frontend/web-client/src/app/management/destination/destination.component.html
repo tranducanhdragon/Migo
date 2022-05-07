@@ -1,0 +1,81 @@
+<div class="slide">
+    <div class="d-block w-100 h-500">
+    </div>
+    <div class="slide-area">
+        <div class="w-100">
+            <div class="">
+                <ngb-carousel class="w-100 slide-hei" #carousel [interval]="2000" [pauseOnHover]="pauseOnHover"
+                    [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
+                    <ng-template ngbSlide *ngFor="let img of images; index as i">
+                        <a href="https://www.google.fr/?q=Number+{{ i + 1 }}" target="_blank"
+                            rel="nofollow noopener noreferrer">
+                            <div class="picsum-img-wrapper">
+                                <img [src]="img" class="w-100 slide-hei" alt="My image {{ i + 1 }} description" />
+                            </div>
+                        </a>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popular">
+    <div class="title">
+        <div class="title-main">
+            Popular Destination
+        </div>
+        <div class="title-description">
+            Check out where everyone is heading to right now
+        </div>
+    </div>
+    <div class="row content">
+        <div class="col-lg-5 left">
+            <img src="/assets/image/destination/popular1.png" alt="">
+            <div class="left-title">
+                Có một Hà Nội dịu dàng như thế!
+            </div>
+            <div class="left-description">
+                Hà Nội đang trong những ngày thời tiết 
+                đẹp nhất năm với sắc vàng ngọt ngào của đợt nắng đầu ...
+            </div>
+            <div class="left-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Hà Nội, Việt Nam</span>
+            </div>
+        </div>
+        <div class="col-lg-7 right">
+            <div class="right-main">
+                <img src="/assets/image/destination/popular2.png" alt="">
+                <div class="title">
+                    Khám phá lăng Khải Định - vị vua "tân thời" nhất triều Nguyễn
+                </div>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Lăng khia đinh, Hue, Viet Nam</span>
+                </div>
+            </div>
+            <div class="right-extra">
+                <div class="extra-item">
+                    <img src="/assets/image/destination/popular3.png" alt="">
+                    <div class="title">
+                        Hà Giang - vẻ đẹp đơn sơ nơi địa đầu Tổ quốc
+                    </div>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Hà Giang, Ha Giang, Viet Nam</span>
+                    </div>
+                </div>
+                <div class="extra-item">
+                    <img src="/assets/image/destination/popular4.png" alt="">
+                    <div class="title">
+                        Những bộ lạc với phong tục độc đáo sống tách biệt với thế giới
+                    </div>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>England</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

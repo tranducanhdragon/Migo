@@ -76,7 +76,7 @@ namespace Core.Service
         {
             try
             {
-                var user = _userRepo.Get(u => u.UserName == authenDto.UserName);
+                var user = _userRepo.Get(u => u.UserName == authenDto.UserName | u.Email == authenDto.Email);
                 if(user != null && user.Password == Encryption(authenDto.Password))
                 {
                     return user;

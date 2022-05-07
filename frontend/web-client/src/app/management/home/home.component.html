@@ -1,7 +1,98 @@
-<div class="wrapper vh-100">
-    <app-header></app-header>
-    <div class="content-wrapper">
-      <router-outlet></router-outlet>
+<div class="slide">
+  <div class="d-block w-100 h-690">
+  </div>
+  <div class="slide-area">
+    <div class="w-100">
+      <div class="">
+        <ngb-carousel class="w-100 slide-hei" #carousel [interval]="2000" [pauseOnHover]="pauseOnHover"
+          [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
+          <ng-template ngbSlide *ngFor="let img of images; index as i">
+            <a href="https://www.google.fr/?q=Number+{{ i + 1 }}" target="_blank" rel="nofollow noopener noreferrer">
+              <div class="picsum-img-wrapper">
+                <img [src]="img" class="w-100 slide-hei" alt="My image {{ i + 1 }} description" />
+              </div>
+            </a>
+          </ng-template>
+        </ngb-carousel>
+      </div>
     </div>
-    <app-footer></app-footer>
+  </div>
+</div>
+<div class="destination">
+  <div class="title">
+    <div class="title-left">
+      <h2>Popular destinations</h2>
+    </div>
+    <div class="title-right">
+      <i class="fa fa-calendar"></i>
+      <span>April</span>
+    </div>
+  </div>
+  <div class="content">
+    <div class="row content-box">
+      <div class="col-xl-4 content-item">
+        <img src="/assets/image/home/des1.png" alt="">
+      </div>
+      <div class="col-xl-4 content-item">
+        <img src="/assets/image/home/des2.png" alt="">
+      </div>
+      <div class="col-xl-4 content-item">
+        <img src="/assets/image/home/des3.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="stories">
+  <div class="title">
+    <span>Stories by topics</span>
+  </div>
+  <div class="content">
+    <div class="row menu-bar">
+      <div class="col menu-item" *ngFor="let item of menus" [ngClass]="item.isActive?'yellow-active':''">
+        <div class="menu-icon">
+          <img [src]="item.image" alt="">
+        </div>
+        <div class="menu-text"
+          [ngStyle]="{'width':item.width}">
+          {{item.title}}
+        </div>
+      </div>
+    </div>
+    <div class="content-intro">
+      <div class="row">
+        <div class="col-lg-7 left">
+          <img src="/assets/image/home/intro1.png" alt="">
+        </div>
+        <div class="col-lg-5 right">
+          <div class="intro-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Phú Quốc, Việt Nam</span>
+          </div>
+          <div class="intro-title">
+            Beautiful beach at Sunrise Resort, in Hoi An, Quang Nam
+          </div>
+          <div class="intro-text">
+            Located in an open space with clouds, sky,
+            and sea, the special highlight of the resort
+            is the architectural style combining the
+            three countries of Japan, France and Vietnam.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-grid">
+      <div class="row">
+        <div class="col-lg-4 card" *ngFor="let item of intros">
+          <img class="card-img-top" [src]="item.image" alt="Card image cap">
+          <div class="card-body">
+            <div class="location-title">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>{{item.location}}</span>
+            </div>
+            <span class="card-title">{{item.title}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

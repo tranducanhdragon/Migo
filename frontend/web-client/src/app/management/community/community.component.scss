@@ -1,0 +1,89 @@
+.tour {
+    padding: 120px;
+
+    .tour-title {
+        margin-bottom: 64px;
+
+        span {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 52px;
+            color: #080D34;
+        }
+    }
+
+    .card {
+        text-align: left !important;
+        min-width: 112px;
+        margin-bottom: 30px;
+        .card-body {
+            .location-title {
+                font-weight: 500;
+                font-size: 15px;
+                margin-bottom: 12px;
+
+                i {
+                    margin-right: 7.5px;
+                }
+
+                span {}
+            }
+
+            .card-text {
+                font-weight: 400;
+                font-size: 15px;
+            }
+
+            .tour-guide {
+                display: flex;
+
+                .guide-icon {
+                    margin-right: 8px;
+                }
+
+                .guide-name {
+                    font-weight: 600;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .card-footer {
+            background-color: #fff !important;
+
+            .col-6 {
+                color: #bdbdbd;
+            }
+
+            span {
+                color: #000;
+                font-size: 16px;
+                font-weight: 600;
+                letter-spacing: 0.03em;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1280px) {
+    .tour{
+        .card {
+            .card-body {
+                .card-title{
+                    display: none;
+                }
+                .card-text {
+                    display: none;
+                }
+    
+                .tour-guide {
+                    display: none;
+                }
+            }
+    
+            .card-footer {
+                display: none;
+            }
+        }
+    }
+}

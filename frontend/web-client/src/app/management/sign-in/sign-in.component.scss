@@ -1,0 +1,240 @@
+:host ::ng-deep .birth-box .birth-item .p-dropdown {
+    width: 125px;
+    border-radius: 26px;
+    padding: 0 16px;
+}
+
+:host ::ng-deep .p-checkbox {
+    margin-right: 24px;
+}
+
+:host ::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
+    border-color: #f3c158;
+    background: #f3c158;
+}
+
+:host ::ng-deep .p-checkbox .p-checkbox-box.p-highlight:hover {
+    border-color: #f3c158;
+    background: #f3c158;
+}
+
+:host ::ng-deep .p-checkbox:not(.p-checkbox-disable) .p-checkbox-box.p-focus {
+    border-color: #f3c158;
+    box-shadow: 0 0 0 0.2rem #ffeec9;
+}
+
+.signin {
+    display: flex;
+    justify-content: center;
+    background-color: #E5E5E5;
+    padding: 142px 408px;
+
+    .signin-box {
+        width: 465px;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+        .signin-switch {
+            display: flex;
+            height: 48px;
+            align-items: center;
+
+            .switch-login {
+                width: 50%;
+                height: 100%;
+                background: #F2F2F2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 12px 0px 0px 0px;
+
+                span {
+                    font-weight: 700;
+                    font-size: 16px;
+                    color: #323234;
+                }
+            }
+
+            .switch-login:hover {
+                cursor: pointer;
+            }
+
+            .switch-register {
+                width: 50%;
+                height: 100%;
+                background: #F2F2F2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0px 12px 0px 0px;
+
+                span {
+                    font-weight: 700;
+                    font-size: 16px;
+                    color: #323234;
+                }
+            }
+
+            .switch-register:hover {
+                cursor: pointer;
+            }
+
+            .active-signin {
+                background-color: #fff;
+
+                span {
+                    color: #F3C158;
+                }
+            }
+        }
+
+        // common css
+        .title {
+            margin: 32px;
+            font-weight: 600;
+            font-size: 18px;
+            color: #333333;
+        }
+
+        label {
+            margin-bottom: 4px;
+            font-weight: 400;
+            font-size: 15px;
+            color: #828282;
+        }
+
+        input {
+            height: 42px;
+            padding: 11px 24px;
+            background: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 26px;
+        }
+
+        .input-area {
+            margin: 32px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input_double-area {
+            display: flex;
+            justify-content: space-between;
+            margin: 32px;
+
+            .left {
+                width: 48%;
+                display: flex;
+                flex-direction: column;
+                margin-right: 24px;
+            }
+
+            .right {
+                width: 48%;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .input_triple-area {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 32px;
+
+            .birth-box {
+                display: flex;
+                justify-content: space-between;
+
+                .birth-item {}
+            }
+        }
+
+        .submit {
+            margin: 32px;
+
+            button {
+                width: 100%;
+                padding: 12px 16px;
+                background: #F3C158;
+                border: 1px solid #F3C158;
+                border-radius: 30px;
+            }
+        }
+
+        // particular css
+        .signin-login {
+
+            .content {
+
+                .remember-pass {
+                    display: flex;
+                    align-items: center;
+                    margin: 0 32px;
+
+                    .left {
+                        display: flex;
+                        align-items: center;
+                        text-align: left;
+                        width: 50%;
+                        font-weight: 400;
+                        font-size: 15px;
+                        color: #323234;
+
+                        input {
+                            margin-right: 14px;
+                        }
+
+                        input[type="checkbox"]:checked {
+                            background-color: #F3C158;
+                        }
+                    }
+
+                    .right {
+                        width: 50%;
+                        text-align: right;
+                        font-weight: 400;
+                        font-size: 15px;
+                        color: #F3C158;
+                    }
+                }
+
+                .alert {
+                    position: relative;
+                    padding: 0 2.25rem;
+                    margin-bottom: 2rem;
+                    border: 1px solid transparent;
+                    border-radius: 0.25rem;
+
+                    small {
+                        font-weight: 400;
+                        font-size: 15px;
+                        color: #EA3D2F;
+                    }
+                }
+            }
+        }
+
+        .signin-register {
+            span {}
+
+            .migo-color {
+                color: #F3C158;
+            }
+
+            .policy {
+                display: flex;
+                align-items: center;
+                margin: 32px;
+
+            }
+
+            .notification {
+                display: flex;
+                align-items: center;
+                margin: 32px;
+            }
+        }
+    }
+}

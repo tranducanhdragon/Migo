@@ -2,17 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { RoleConst } from 'src/environments/constant';
-import { LoginComponent } from './management/intro/login/login.component';
-import { IntroComponent } from './management/intro/intro.component';
+import { CommunityComponent } from './management/community/community.component';
+import { DestinationComponent } from './management/destination/destination.component';
+import { HomeComponent } from './management/home/home.component';
+import { SignInComponent } from './management/sign-in/sign-in.component';
 
 const routes: Routes = [
-  {path:'', component:IntroComponent},
-  {path:'intro', component:IntroComponent,},
-  {path:'login', component:LoginComponent},
+  {path:'', component:HomeComponent},
+  {path:'community', component:CommunityComponent,},
+  {path:'destination', component:DestinationComponent,},
+  {path:'signin', component:SignInComponent,},
   {
     path: 'home',
-    canActivate: [AuthGuard],
-    data: { Role: [RoleConst.Admin,RoleConst.User] },
     loadChildren: () => import('./management/home/home.module').then(m => m.HomeModule)
   }
 ];

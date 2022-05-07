@@ -1,1 +1,149 @@
+<!--Header Navigation-->
+<nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
+    <div class="head-container">
+        <div class="logo">
+            <img class="letter-m" src="/assets/logo/logo-m.png" alt="">
+            <img class="letter-i" src="/assets/logo/logo-i.png" alt="">
+            <img class="letter-i1" src="/assets/logo/logo-i1.png" alt="">
+            <img class="letter-g" src="/assets/logo/logo-g.png" alt="">
+            <img class="letter-o" src="/assets/logo/logo-o.png" alt="">
+        </div>
+        <div class="search">
+            <input placeholder="Search"/>
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="menu">
+            <ul>
+                <li *ngFor="let item of menuItem" 
+                    [ngClass]="item.isActive?'active':''"
+                    (click)="chooseItemMenu(item)"
+                    [routerLink]="[item.href]">
+                    {{item.title}}
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="isLogin" class="head-left">
+            <div class="notification">
+                <i class="pi pi-bell mr-4 p-text-secondary" pBadge style="font-size: 2rem" value="10" severity="danger">
+                </i>
+            </div>
+            <div class="user-info">
+                <div class="user-logo">
+                    <img width="32" height="32" src="/assets/image/header/user.png" alt="">
+                </div>
+                <div class="user-name">
+                    <span>Lana Nguyễn</span>
+                    <i class="fa fa-caret-down"
+                        (click)="showUserTool()">
+                    </i>
+                    <div class="user_tool" *ngIf="isShowUserTool">
+                        <div class="user_tool-item">
+                            <span>
+                                Chỉnh sửa
+                            </span>
+                        </div>
+                        <div class="user_tool-item">
+                            <span
+                                (click)="logout()">
+                                Đăng xuất
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="crog">
+                <i class="fas fa-align-justify">
+                </i>
+            </div>
+        </div>
+        <div *ngIf="!isLogin" class="head-left">
+            <div class="btn-login">
+                <button
+                    [routerLink]="['signin']">
+                    Đăng nhập
+                </button>
+            </div>
+            <div class="language">
+                <span class="active">
+                    VN 
+                </span> 
+                | EN
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Body -->
+
 <router-outlet></router-outlet>
+
+<!-- Footer-->
+<footer class="footer text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-5 mb-lg-0" 
+                style="min-height: 270px;">
+                <div class="logo">
+                    <img class="letter-m" src="/assets/logo/logo-m.png" alt="">
+                    <img class="letter-i" src="/assets/logo/logo-i.png" alt="">
+                    <img class="letter-i1" src="/assets/logo/logo-i1.png" alt="">
+                    <img class="letter-g" src="/assets/logo/logo-g.png" alt="">
+                    <img class="letter-o" src="/assets/logo/logo-o.png" alt="">
+                </div>
+                <p class="description">
+                    We would love to hear more from you.
+                    If you have any questions or simply
+                    want to send us some feedback, please
+                    email to
+                </p>
+                <p class="email">
+                    <i class="fa fa-envelope"></i>
+                    Marketing@migo.travel
+                </p>
+                <div class="social">
+                    <a class="btn btn-outline"><i class="fab fa-fw fa-facebook-f"></i></a>
+                    <a class="btn btn-outline"><i class="fab fa-fw fa-instagram"></i></a>
+                    <a class="btn btn-outline"><i class="fab fa-fw fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="row" style="padding-top: 20px;">
+                    <div class="col-lg-4">
+                        <div class="title">About Migo</div>
+                        <div class="content">
+                            <span>About Us</span>
+                            <span>Work with us</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="title">Support</div>
+                        <div class="content">
+                            <span>Terms Of Use</span>
+                            <span>Privacy Policy</span>
+                            <span>Terms & Conditions</span>
+                            <span>Community Standard</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="title">Migo App</div>
+                        <div class="content">
+                            <div class="img-item">
+                                <img src="/assets/image/footer/appstore.png" style="width: 180px; height: 90px;" alt="">
+                            </div>
+                            <div class="img-item">
+                                <img src="/assets/image/footer/googleplay.png" style="width: 180px; height: 90px;" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Copyright Section-->
+<div class="copyright text-center text-white">
+    <div class="container">
+        <small>
+            &copy; {{currentYear}} MIGO Beta. All rights reserved.
+        </small>
+    </div>
+</div>

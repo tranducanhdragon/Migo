@@ -5,19 +5,18 @@ import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/n
 import { TourService } from 'src/service/community/community.service';
 
 @Component({
-  selector: 'app-intro',
-  templateUrl: './intro.component.html',
-  styleUrls: ['./intro.component.css', './intro.component.scss']
+  selector: 'app-community',
+  templateUrl: './community.component.html',
+  styleUrls: ['./community.component.css', './community.component.scss']
 })
-export class IntroComponent implements OnInit {
+export class CommunityComponent implements OnInit {
   @ViewChild("carousel", { static: true }) carousel: NgbCarousel | any;
-  currentYear: number = new Date().getFullYear();
   paused = false;
   unpauseOnArrow = false;
   pauseOnIndicator = false;
   pauseOnHover = true;
   pauseOnFocus = true;
-  images = ["/assets/image/slide.png", "assets/image/slide2.png"];
+  images = ["/assets/image/community/slide.png", "assets/image/community/slide.png"];
 
  responsiveOptions:any
 

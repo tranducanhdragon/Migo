@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './management/intro/login/login.component';
-import { IntroComponent } from './management/intro/intro.component';
+import { CommunityComponent } from './management/community/community.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { CommonModule } from '@angular/common';
@@ -17,13 +16,18 @@ import { RouterModule } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import {BadgeModule} from 'primeng/badge';
+import { BadgeModule} from 'primeng/badge';
+import { DropdownModule} from 'primeng/dropdown';
+import {CheckboxModule} from 'primeng/checkbox';
+import { DestinationComponent } from './management/destination/destination.component';
+import { SignInComponent } from './management/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    IntroComponent,
+    CommunityComponent,
+    DestinationComponent,
+    SignInComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +43,8 @@ import {BadgeModule} from 'primeng/badge';
     ButtonModule,
     TableModule,
     BadgeModule,
+    DropdownModule,
+    CheckboxModule,
   ],
   providers: [
     {

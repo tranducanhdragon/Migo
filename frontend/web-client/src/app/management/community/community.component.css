@@ -2259,6 +2259,7 @@ input[type='checkbox'] {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	position: relative;
 }
 .slide-area{
 	width: 100%;
@@ -2268,7 +2269,6 @@ input[type='checkbox'] {
 	flex-direction: column;
 	background-color: rgb(53 53 53 / 86%);
 	position: absolute;
-    top: 64px;
     left: 0;
 }
 .slide-title__p span{

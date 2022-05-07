@@ -1,0 +1,122 @@
+<div class="signin">
+    <div class="signin-box">
+        <div class="signin-switch">
+            <div class="switch-login" (click)="switchLogin()" [ngClass]="switchSignin==1?'active-signin':''">
+                <span>ĐĂNG NHẬP</span>
+            </div>
+            <div class="switch-register" (click)="switchRegister()" [ngClass]="switchSignin==2?'active-signin':''">
+                <span>ĐĂNG KÝ</span>
+            </div>
+        </div>
+        <!-- Đăng nhập -->
+        <div class="signin-login" *ngIf="switchSignin==1">
+            <div class="title">
+                Welcome to Migo
+            </div>
+            <div class="content">
+                <div class="input-area">
+                    <label for="">Email</label>
+                    <input type="text" placeholder="Điền email ở đây" [(ngModel)]="userLogin.email">
+                </div>
+                <div class="input-area">
+                    <label for="">Mật khẩu</label>
+                    <input type="password" placeholder="Điền password ở đây" [(ngModel)]="userLogin.password"
+                        (keydown.enter)="login()">
+                </div>
+                <div class="alert">
+                    <small class="p-invalid" *ngIf="isSubmit && !isLoginSuccess">
+                        Đăng nhập thất bại
+                    </small>
+                </div>
+                <div class="remember-pass">
+                    <div class="left">
+                        <p-checkbox name="groupname" value="val1">
+                        </p-checkbox>
+                        <span>
+                            Nhớ mật khẩu
+                        </span>
+                    </div>
+                    <div class="right">Quên mật khẩu?</div>
+                </div>
+                <div class="submit">
+                    <button (click)="login()">
+                        Đăng nhập
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Đăng ký -->
+        <div class="signin-register" *ngIf="switchSignin==2">
+            <div class="title">
+                Welcome to Migo
+            </div>
+            <div class="content">
+                <div class="input-area">
+                    <label for="">Email</label>
+                    <input type="text" placeholder="Điền email ở đây">
+                </div>
+                <div class="input-area">
+                    <label for="">Mật khẩu</label>
+                    <input type="password" placeholder="Điền mật khẩu ở đây">
+                </div>
+                <div class="input-area">
+                    <label for="">Xác minh mật khẩu</label>
+                    <input type="password" placeholder="Xác minh mật khẩu">
+                </div>
+                <div class="input_double-area">
+                    <div class="left">
+                        <label for="">Họ</label>
+                        <input type="text" placeholder="Họ">
+                    </div>
+                    <div class="right">
+                        <label for="">Tên</label>
+                        <input type="text" placeholder="Tên">
+                    </div>
+                </div>
+                <div class="input_triple-area">
+                    <label for="">Ngày sinh</label>
+                    <div class="birth-box">
+                        <div class="birth-item">
+                            <p-dropdown [options]="days" placeholder="Ngày" [showClear]="false">
+                            </p-dropdown>
+                        </div>
+                        <div class="birth-item">
+                            <p-dropdown [options]="months" placeholder="Tháng" [showClear]="false">
+                            </p-dropdown>
+                        </div>
+                        <div class="birth-item">
+                            <p-dropdown [options]="years" placeholder="Năm" [showClear]="false">
+                            </p-dropdown>
+                        </div>
+                    </div>
+                </div>
+                <div class="policy">
+                    <p-checkbox name="groupname" value="val1">
+                    </p-checkbox>
+                    <span>
+                        Tôi đồng ý với các
+                        <span class="migo-color">
+                            Điều khoản
+                        </span>
+                        và
+                        <span class="migo-color">
+                            Chính sách quyền riêng tư
+                        </span>
+                    </span>
+                </div>
+                <div class="notification">
+                    <p-checkbox name="groupname" value="val1">
+                    </p-checkbox>
+                    <span>
+                        Tôi đồng ý đăng ký nhận tin tức mới nhất từ Migo
+                    </span>
+                </div>
+
+                <div class="submit">
+                    <button>Đăng ký</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
