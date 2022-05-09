@@ -25,8 +25,8 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="image-container">
-                    <img width="350" height="400" class="img-fluid" 
-                        [src]="'/assets/image/community/p1.png'" alt="alternative">
+                    <img width="350" height="400" class="img-fluid" [src]="'/assets/image/community/p1.png'"
+                        alt="alternative">
                 </div> <!-- end of image-container -->
             </div> <!-- end of col -->
             <div class="col-lg-6">
@@ -65,8 +65,8 @@
             </div>
             <div class="col-lg-6">
                 <div class="image-container" style="padding-top: 80px;">
-                    <img width="350" height="400" class="img-fluid" 
-                        [src]="'/assets/image/community/p2.png'" alt="alternative">
+                    <img width="350" height="400" class="img-fluid" [src]="'/assets/image/community/p2.png'"
+                        alt="alternative">
                 </div>
             </div>
         </div>
@@ -77,8 +77,8 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="image-container">
-                    <img width="350" height="400" class="img-fluid" 
-                        [src]="'/assets/image/community/p3.png'" alt="alternative">
+                    <img width="350" height="400" class="img-fluid" [src]="'/assets/image/community/p3.png'"
+                        alt="alternative">
                 </div>
             </div>
             <div class="col-lg-6">
@@ -99,26 +99,77 @@
     </div>
 </div>
 
+<div class="contact">
+    <div class="row">
+        <div class="col-lg-3 contact-area">
+            <div class="title-contact">
+                Contact our Consultants
+            </div>
+            <div class="title-border"></div>
+            <div class="content">
+                Each of our consultants can
+                advise and customize your own tours.
+            </div>
+            <div class="img-messenger">
+                <img src="/assets/image/community/messenger.png" alt="">
+            </div>
+        </div>
+        <div class="col-lg-3 consultant-area" *ngFor="let tourGuide of tourGuides">
+            <div class="title-consultant">
+                <div class="consultant">
+                    <div class="avar">
+                        <img [src]="tourGuide.tourGuideImage" alt="">
+                    </div>
+                    <div class="name">
+                        {{tourGuide.tourGuideName}}
+                    </div>
+                </div>
+            </div>
+            <div class="content-consultant">
+                {{tourGuide.tourGuideDescription}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="trending">
+    <div class="trending-bg">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="text-container">
+                    <h2>What's trending</h2>
+                    <div class="trending-tour" *ngFor="let trending of trendings">
+                        <span>{{trending}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="tour">
     <div class="tour-title">
         <span>Popular tour package</span>
     </div>
     <div class="row">
         <ng-container *ngIf="tours">
-            <div *ngFor="let tour of tours" class="col-lg-4" 
-                style="display: flex; justify-content: center;">
+            <div *ngFor="let tour of tours" class="col-lg-4" style="display: flex; justify-content: center;">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" [src]="tour.tourImage" alt="Card image cap">
                     <div class="card-body">
                         <div class="location-title">
                             <i class="fas fa-map-marker-alt"></i>
                             <span>{{tour.tourLocation}}</span>
+                            <i class="fa fa-angle-down response-icon" (click)="expandCardTour()">
+
+                            </i>
                         </div>
-                        <h4 class="card-title">{{tour.tourName}}</h4>
-                        <p class="card-text">
+                        <h4 [ngClass]="isExpandCardTour?'':'display-none'" class="card-title">{{tour.tourName}}
+                        </h4>
+                        <p [ngClass]="isExpandCardTour?'':'display-none'" class="card-text">
                             {{tour.tourDescription}}
                         </p>
-                        <div class="tour-guide">
+                        <div [ngClass]="isExpandCardTour?'':'display-none'" class="tour-guide">
                             <div class="guide-icon">
                                 <img [src]="tour.tourGuideImage" alt="">
                             </div>
@@ -127,7 +178,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer text-muted">
+                    <div [ngClass]="isExpandCardTour?'':'display-none'" class="card-footer text-muted">
                         <div class="row">
                             <div class="col-6">
                                 From:&nbsp;
@@ -141,5 +192,33 @@
                 </div>
             </div>
         </ng-container>
+    </div>
+</div>
+
+<div class="partner">
+    <div class="person">
+        <div class="avar">
+            <img src="/assets/image/community/consultant1.png" alt="">
+        </div>
+        <div class="description">
+            <p>
+                “Nền tảng Migo giúp tôi chia sẻ trải nghiệm 
+                du lịch của mình tới nhiều người hơn và kết nối với các
+                blogger khác. Migo Planner là công cụ tuyệt 
+                vời cho việc lên kế hoạch chuyến đi, gợi ý nhiều điểm đến
+                độc-lạ, và giúp tôi chuẩn bị kinh phí phù hợp.”
+            </p>
+        </div>
+        <div class="name">
+            Chi Nguyễn
+        </div>
+    </div>
+    <div class="our-partner">
+        <div class="title">
+            <span>Đối tác của chúng tôi</span>
+        </div>
+        <div class="partner-slide">
+            <img src="/assets/image/community/partner.png" alt="">
+        </div>
     </div>
 </div>

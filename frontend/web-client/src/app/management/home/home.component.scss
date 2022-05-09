@@ -46,10 +46,12 @@
         .title-right {
             position: absolute;
             right: 0;
-            i{
+
+            i {
                 margin-right: 12px;
             }
-            span{
+
+            span {
                 font-weight: 700;
                 font-size: 20px;
                 color: #191A2B;
@@ -124,7 +126,8 @@
                     align-items: center;
                 }
             }
-            .menu-item:hover{
+
+            .menu-item:hover {
                 cursor: pointer;
                 background: #FDFAF1;
                 border: 1px solid #F3C158;
@@ -146,7 +149,6 @@
                 justify-content: center;
 
                 img {
-                    min-width: 360px;
                     border-radius: 2px;
                 }
             }
@@ -183,39 +185,214 @@
         .content-grid {
             display: flex;
             justify-content: center;
-            .row{
+
+            .row {
                 justify-content: center;
+
                 .card {
                     text-align: left !important;
                     min-width: 112px;
                     // margin-right: 33px;
                     width: 351px !important;
                     border: none;
-    
+
                     img {
                         width: 350px;
                         height: 220px;
                         border-radius: 2px;
                     }
-    
+
                     .card-body {
                         .location-title {
                             margin-bottom: 12px;
                             font-weight: 500;
                             font-size: 15px;
                             color: #8C8C8C;
-    
+
                             i {
                                 margin-right: 7.5px;
                             }
-    
+
                             span {}
                         }
-    
+
                         .card-title {
                             font-weight: 600;
                             font-size: 18px;
                             color: #191A2B;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+
+    .destination {
+        background: #F9F8F2;
+        padding: 80px 24px;
+
+        .title {
+            display: flex;
+            position: relative;
+            height: 70px;
+            min-width: 300px;
+
+            .title-right {
+                span {
+                    font-weight: 700;
+                    font-size: 18px;
+                    color: #191A2B;
+                }
+            }
+
+            .title-left {
+                display: none;
+            }
+        }
+    }
+
+
+    .stories {
+        background-color: #fff;
+        padding: 80px 24px;
+
+        .title {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+
+            span {
+                font-weight: 700;
+                font-size: 28px;
+                color: #080D34;
+            }
+        }
+
+        .content {
+            .menu-bar {
+                display: flex;
+                justify-content: center;
+                padding: 15px 24px;
+
+                .menu-item {
+                    min-width: fit-content;
+                    display: flex;
+                    border: 1px solid rgba(0, 0, 0, 0.1);
+                    border-radius: 30px;
+                    height: 48px;
+                    margin: 10px 24px;
+                    padding: 12px 20px;
+
+                    .menu-icon {
+                        display: flex;
+                        align-items: center;
+                        margin-right: 11px;
+                    }
+
+                    .menu-text {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+
+                .menu-item:hover {
+                    cursor: pointer;
+                    background: #FDFAF1;
+                    border: 1px solid #F3C158;
+                }
+
+                .yellow-active {
+                    background: #FDFAF1;
+                    border: 1px solid #F3C158;
+                }
+            }
+
+            .content-intro {
+                display: flex;
+                padding-top: 40px;
+                padding-bottom: 80px;
+
+                .left {
+                    display: flex;
+                    justify-content: center;
+
+                    img {
+                        width: 300px;
+                        border-radius: 2px;
+                    }
+                }
+
+                .right {
+                    padding-left: 30px;
+
+                    .intro-location {
+                        color: #828282;
+                        font-weight: 500;
+                        font-size: 15px;
+                        margin-bottom: 10.25px;
+
+                        i {
+                            margin-right: 11px;
+                        }
+                    }
+
+                    .intro-title {
+                        color: #191A2B;
+                        font-weight: 600;
+                        font-size: 24px;
+                        margin-bottom: 24px;
+                    }
+
+                    .intro-text {
+                        font-style: italic;
+                        font-weight: 400;
+                        font-size: 17px;
+                    }
+                }
+            }
+
+            .content-grid {
+                display: flex;
+                justify-content: center;
+
+                .row {
+                    justify-content: center;
+
+                    .card {
+                        text-align: left !important;
+                        min-width: 112px;
+                        // margin-right: 33px;
+                        width: 351px !important;
+                        border: none;
+
+                        img {
+                            width: 300px;
+                            height: 220px;
+                            border-radius: 2px;
+                        }
+
+                        .card-body {
+                            .location-title {
+                                margin-bottom: 12px;
+                                font-weight: 500;
+                                font-size: 14px;
+                                color: #8C8C8C;
+
+                                i {
+                                    margin-right: 7.5px;
+                                }
+
+                                span {}
+                            }
+
+                            .card-title {
+                                font-weight: 600;
+                                font-size: 16px;
+                                color: #191A2B;
+                            }
                         }
                     }
                 }

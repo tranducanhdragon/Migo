@@ -44,23 +44,6 @@ export class CommunityComponent implements OnInit {
       }
     ];
   }
-  wid:string='1200'
-  lastScrollTop = 0;
-
-  @HostListener('window:scroll', ['$event']) onScroll(event:any) {
-    var st = window.pageYOffset || document.documentElement.scrollTop;
-    let widt = +this.wid
-    if (st > this.lastScrollTop && widt <= 1520){
-      // downscroll code
-      widt += 15
-    } else if(st < this.lastScrollTop && widt >= 1200) {
-      // upscroll code
-      widt -= 15
-    }
-    this.wid = widt+''
-    this.lastScrollTop = (st <= 0 ? 0 : st);
-
-  }
 
   scrollFn(anchor: string): void{
   	this.vps.scrollToAnchor(anchor);
@@ -68,6 +51,7 @@ export class CommunityComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllTours()
+    this.getAllTourGuides()
   }
 
   tours:any
@@ -81,6 +65,18 @@ export class CommunityComponent implements OnInit {
       }
     );
   }
+  tourGuides:any
+  getAllTourGuides(){
+    this.tourService.getAllData('/api/Tour/getalltourguide').subscribe(
+      (res:any) => {
+        if(res.success){
+          console.log('tour', res.data);
+          this.tourGuides = res.data;
+        }
+      }
+    );
+  }
+
   togglePaused() {
     if (this.paused) {
       this.carousel.cycle();
@@ -106,4 +102,16 @@ export class CommunityComponent implements OnInit {
       this.togglePaused();
     }
   }
+  isExpandCardTour:boolean=false
+  expandCardTour(){
+    this.isExpandCardTour = !this.isExpandCardTour
+  }
+
+  trendings=[
+    "Events Hanoi",
+    "Best restaurants Saigon",
+    "Phuquoc",
+    "Mở cửa du lịch",
+    "Border open"
+  ]
 }

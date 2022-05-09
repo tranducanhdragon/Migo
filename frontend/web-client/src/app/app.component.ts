@@ -52,4 +52,11 @@ export class AppComponent implements OnInit{
       }
     )
   }
+  isMenuBar:boolean=false
+  openMenuBar(){
+    this.isMenuBar = true
+  }
+  closeMenuBar(){
+    this.isMenuBar = false
+  }
 }

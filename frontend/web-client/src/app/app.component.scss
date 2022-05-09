@@ -2616,12 +2616,6 @@ screen and (-ms-high-contrast: none) {
             }
         }
 
-        .crog {
-            i:hover {
-                cursor: pointer;
-            }
-        }
-
         .user_tool {
             width: 150px;
             background-color: #fff;
@@ -2647,6 +2641,7 @@ screen and (-ms-high-contrast: none) {
 
         .btn-login {
             margin-right: 36px;
+
             button {
                 display: flex;
                 align-items: center;
@@ -2666,6 +2661,147 @@ screen and (-ms-high-contrast: none) {
             font-weight: 400;
             font-size: 16px;
             color: #323234;
+        }
+    }
+
+    .crog {
+        position: absolute;
+        right: 24px;
+        display: block;
+    }
+
+    .crog:hover {
+        cursor: pointer;
+    }
+
+    .menu-bar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100vh;
+        background: #FFFFFF;
+
+        .bar-header {
+            display: flex;
+            padding: 20px 32px;
+
+            .signlog-in {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                color: #000000;
+
+                span {
+                    margin-right: 28px;
+                }
+
+                span:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .user-info {
+                display: flex;
+                width: 200px;
+                margin-left: 20px;
+
+                .user-logo {
+                    width: 32px;
+                    height: 32px;
+
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+
+                .user-name {
+                    width: 155px;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 16px;
+                    text-transform: none;
+                    color: #000;
+                    line-height: 32px;
+                    margin-left: 8px;
+
+                    i {
+                        margin-left: 10px;
+                    }
+
+                    i:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .close-bar {
+                position: absolute;
+                right: 31px;
+
+                i:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .bar-body {
+            ul {
+                list-style: none;
+                padding: 0;
+
+                li {
+                    padding: 16px 32px;
+                    font-weight: 600;
+                    font-size: 16px;
+                    color: #000000;
+                }
+                li:hover{
+                    cursor: pointer;
+                }
+            }
+
+            .logout {
+                padding: 15px 32px;
+                position: fixed;
+                bottom: 80px;
+                width: 300px;
+                border-bottom: 1px solid #dddddd;
+
+                img:hover {
+                    cursor: pointer;
+                }
+
+                span {
+                    font-weight: 600;
+                    font-size: 16px;
+                    color: #333333;
+                }
+            }
+            .logout:hover{
+                cursor: pointer;
+            }
+        }
+
+        .bar-footer {
+            position: fixed;
+            bottom: 28px;
+            display: flex;
+
+            .language-vn {
+                margin-left: 26px;
+                margin-right: 42px;
+
+                img {}
+
+                span {}
+            }
+
+            .language-en {
+                img {}
+
+                span {}
+            }
         }
     }
 
@@ -2737,7 +2873,8 @@ screen and (-ms-high-contrast: none) {
         }
     }
 }
-.active{
+
+.active {
     color: #F3C158;
 }
 
@@ -2758,6 +2895,10 @@ screen and (-ms-high-contrast: none) {
 /* end of min-width 1280px */
 @media only screen and (max-width: 1280px) {
     .head-container {
+        .logo {
+            left: 16px;
+        }
+
         .search {
             display: none;
         }
@@ -2774,9 +2915,8 @@ screen and (-ms-high-contrast: none) {
             .user-info {
                 display: none;
             }
-
-            .crog {}
         }
+
     }
 
     .footer {
@@ -2787,6 +2927,10 @@ screen and (-ms-high-contrast: none) {
                     font-size: 18px;
                     padding-left: 30px;
                     text-align: left;
+                }
+
+                .description {
+                    width: 300px;
                 }
             }
 

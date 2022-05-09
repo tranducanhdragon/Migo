@@ -51,12 +51,8 @@
                     </div>
                 </div>
             </div>
-            <div class="crog">
-                <i class="fas fa-align-justify">
-                </i>
-            </div>
         </div>
-        <div *ngIf="!isLogin" class="head-left">
+        <!-- <div class="head-left">
             <div class="btn-login">
                 <button
                     [routerLink]="['signin']">
@@ -68,6 +64,58 @@
                     VN 
                 </span> 
                 | EN
+            </div>
+        </div> -->
+        <div class="crog">
+            <i class="fas fa-align-justify"
+                (click)="openMenuBar()">
+            </i>
+        </div>
+        <div *ngIf="isMenuBar" class="menu-bar">
+            <div class="bar-header">
+                <div *ngIf="!isLogin" class="signlog-in">
+                    <span [routerLink]="['signin']">Sign Up</span>
+                    <span [routerLink]="['signin']">Login</span>
+                </div>
+                <div *ngIf="isLogin" class="user-info">
+                    <div class="user-logo">
+                        <img width="32" height="32" src="/assets/image/header/user.png" alt="">
+                    </div>
+                    <div class="user-name">
+                        <span>Lana Nguyễn</span>
+                    </div>
+                </div>
+                <div class="close-bar">
+                    <i class="fa fa-times"
+                        (click)="closeMenuBar()">
+                    </i>
+                </div>
+            </div>
+            <div class="bar-body">
+                <ul>
+                    <li [routerLink]="['home']">Home</li>
+                    <li>Plan your trip</li>
+                    <li [routerLink]="['community']">Ask Migo</li>
+                    <li>Inspiration</li>
+                    <li [routerLink]="['destination']">Destination</li>
+                    <li>Events</li>
+                    <li>Community</li>
+                </ul>
+                <div *ngIf="isLogin" class="logout"
+                    (click)="logout()">
+                    <img src="/assets/image/header/signout.png" alt="">
+                    <span>
+                        Sign out
+                    </span> 
+                </div>
+            </div>
+            <div class="bar-footer">
+                <div class="language-vn">
+                    <img src="/assets/image/header/vn.png" alt="">
+                </div>
+                <div class="language-en">
+                    <img src="/assets/image/header/en.png" alt="">
+                </div>
             </div>
         </div>
     </div>

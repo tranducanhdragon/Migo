@@ -1,5 +1,6 @@
 <div class="signin">
-    <div class="signin-box">
+    <!-- login or register -->
+    <div class="signin-box" *ngIf="switchBox==1">
         <div class="signin-switch">
             <div class="switch-login" (click)="switchLogin()" [ngClass]="switchSignin==1?'active-signin':''">
                 <span>ĐĂNG NHẬP</span>
@@ -36,7 +37,11 @@
                             Nhớ mật khẩu
                         </span>
                     </div>
-                    <div class="right">Quên mật khẩu?</div>
+                    <div class="right">
+                        <span (click)="showForgotPassword()">
+                            Quên mật khẩu?
+                        </span>
+                    </div>
                 </div>
                 <div class="submit">
                     <button (click)="login()">
@@ -115,6 +120,89 @@
 
                 <div class="submit">
                     <button>Đăng ký</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- forgot password -->
+    <div class="signin-box" *ngIf="switchBox==2">
+        <div class="forgot-pass">
+            <div class="title">
+                <i class='fas fa-key'></i>
+                Forgot password?
+            </div>
+            <div class="forgot-logo">
+                <img src="/assets/image/signin/forgot.png" alt="">
+            </div>
+            <div class="content">
+                <div class="description">
+                    <div class="description-title">
+                        Reset password
+                    </div>
+                    <p>
+                        Enter the email associated with your
+                        acccount and we will send an email with
+                        instruction to reset your password
+                    </p>
+                </div>
+                <div class="input-area">
+                    <label for="">Email</label>
+                    <input type="text" placeholder="Điền email ở đây" [(ngModel)]="emailReset.to">
+                </div>
+                <!-- <div class="alert">
+                    <small class="p-invalid" *ngIf="isSubmit">
+                        Đăng nhập thất bại
+                    </small>
+                </div> -->
+                <div class="submit">
+                    <button (click)="sendReset()">
+                        Send reset intructions
+                    </button>
+                </div>
+                <div class="have-account">
+                    Already have an account? &nbsp;
+                    <span (click)="showSignIn()">Sign In</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- reset password -->
+    <div class="signin-box" *ngIf="switchBox==3">
+        <div class="forgot-pass">
+            <div class="title">
+                <i class='fas fa-key'></i>
+                Forgot password?
+            </div>
+            <div class="forgot-logo">
+                <img src="/assets/image/signin/mail.png" alt="">
+            </div>
+            <div class="content">
+                <div class="description">
+                    <div class="description-title">
+                        Check your email
+                    </div>
+                    <p>
+                        We have sent a password recover
+                        instructions to your email:
+                        <span>{{emailReset.to}}</span>
+                    </p>
+                </div>
+                <div class="submit">
+                    <ng-container *ngIf="counter$ | async as counter">
+                        <button
+                            [disabled]="counter > 0"
+                            [ngClass]="counter > 0?'btn-disable':''"   
+                            (click)="sendReset()">
+                            Resend email
+                            <span *ngIf="counter > 0">
+                                ({{counter$ | async}}s)
+                            </span>
+                        </button>
+                    </ng-container>
+                </div>
+                <div class="check-account">
+                    Did not receive the email? Check your spam filter, or
+                    <span (click)="showForgotPassword()">try another email address</span>
                 </div>
             </div>
         </div>

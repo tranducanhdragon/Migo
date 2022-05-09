@@ -1,4 +1,156 @@
+.trending {
+    background-image: url(/assets/image/community/trending.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 790px;
+
+    .trending-bg {
+        height: 100%;
+        background: linear-gradient(90deg, #FFFDF7 14.57%, rgba(255, 255, 255, 0) 102.33%);
+
+        .row {
+            margin: 0;
+        }
+
+        .text-container {
+            margin-left: 200px;
+            margin-top: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
+                text-align: center;
+                margin-bottom: 50px;
+                font-weight: 700;
+                font-size: 48px;
+                color: #000000;
+            }
+
+            .trending-tour {
+                text-align: center;
+                padding: 16px 105px;
+                background: #FFFFFF;
+                box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.08);
+                border-radius: 8px;
+                margin-bottom: 32px;
+
+                span {
+                    text-align: center;
+                    font-weight: 400;
+                    font-size: 20px;
+                    color: #323234;
+                }
+            }
+
+            .trending-tour:hover {
+                cursor: pointer;
+                transform: scale(1.05, 1.05);
+            }
+
+            .trending-tour:nth-child(2) {
+                width: 405px;
+            }
+
+            .trending-tour:nth-child(3) {
+                width: 465px;
+            }
+
+            .trending-tour:nth-child(4) {
+                width: 526px;
+                background: #FFFEF1;
+                border: 1px solid #F4BD58;
+                box-shadow: 2px 2px 20px rgba(244, 189, 88, 0.16);
+                border-radius: 8px;
+            }
+
+            .trending-tour:nth-child(5) {
+                width: 465px;
+            }
+
+            .trending-tour:nth-child(6) {
+                width: 406px;
+            }
+        }
+    }
+
+}
+
+.contact {
+    background: #F9F8F2;
+    padding: 100px 160px;
+
+    .contact-area {
+        min-width: 300px;
+
+        .title-contact {
+            font-weight: 700;
+            font-size: 40px;
+            color: #080D34;
+            padding-bottom: 16px;
+
+        }
+
+        .title-border {
+            width: 53px;
+            height: 4px;
+            background-color: #FBBC0E;
+        }
+
+        .content {
+            width: 216px;
+            margin-top: 32px;
+            font-weight: 600;
+            font-size: 18px;
+            color: #323234;
+        }
+
+        .img-messenger {
+            margin-top: 32px;
+        }
+
+        .img-messenger:hover {
+            cursor: pointer;
+            transform: scale(1.05, 1.05);
+        }
+    }
+
+    .consultant-area {
+        .title-consultant {
+            .consultant {
+                display: flex;
+
+                .avar {
+                    img {
+                        width: 72px;
+                        height: 72px;
+                    }
+
+                    margin-right: 14px;
+                }
+
+                .name {
+                    font-weight: 700;
+                    font-size: 18px;
+                    color: #000000;
+                    line-height: 72px;
+                }
+            }
+        }
+
+        .content-consultant {
+            margin-top: 28px;
+            font-weight: 400;
+            font-size: 15px;
+            color: #4F4F4F;
+        }
+    }
+
+}
+
 .tour {
+    background: #F9F8F2;
     padding: 120px;
 
     .tour-title {
@@ -17,14 +169,21 @@
         text-align: left !important;
         min-width: 112px;
         margin-bottom: 30px;
+
         .card-body {
             .location-title {
+                display: flex;
+                align-items: center;
                 font-weight: 500;
                 font-size: 15px;
                 margin-bottom: 12px;
 
                 i {
                     margin-right: 7.5px;
+                }
+
+                .response-icon {
+                    display: none;
                 }
 
                 span {}
@@ -65,24 +224,294 @@
         }
     }
 }
+
+.partner {
+    .person {
+        text-align: center;
+        padding-top: 120px;
+
+        .avar {
+            margin-bottom: 32px;
+
+            img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        .description {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 22px;
+
+            p {
+                width: 630px;
+                font-weight: 500;
+                font-size: 18px;
+                color: #000000;
+            }
+        }
+
+        .name {
+            font-weight: 700;
+            font-size: 24px;
+            color: #000000;
+        }
+    }
+
+    .our-partner {
+        margin-top: 110px;
+
+        .title {
+            text-align: center;
+
+            span {
+                font-weight: 700;
+                font-size: 40px;
+                color: #080D34;
+            }
+        }
+
+        .partner-slide {
+            display: flex;
+            justify-content: center;
+            margin-top: 48px;
+            margin-bottom: 120px;
+        }
+    }
+}
+
 @media only screen and (max-width: 1280px) {
-    .tour{
-        .card {
-            .card-body {
-                .card-title{
-                    display: none;
-                }
-                .card-text {
-                    display: none;
-                }
-    
-                .tour-guide {
-                    display: none;
+    .basic-1 {
+        .container {
+            .row {
+                .text-container {
+                    width: 327px;
                 }
             }
-    
-            .card-footer {
-                display: none;
+        }
+    }
+
+    .contact {
+        background: #F9F8F2;
+        padding: 80px 24px;
+
+        .contact-area {
+            min-width: 300px;
+            margin-bottom: 38px;
+
+            .title-contact {
+                font-weight: 700;
+                font-size: 28px;
+                color: #080D34;
+                padding-bottom: 16px;
+
+            }
+
+            .title-border {
+                width: 53px;
+                height: 4px;
+                background-color: #FBBC0E;
+            }
+
+            .content {
+                width: 216px;
+                margin-top: 32px;
+                font-weight: 600;
+                font-size: 18px;
+                color: #323234;
+            }
+
+            .img-messenger {
+                margin-top: 32px;
+            }
+        }
+
+        .consultant-area {
+            margin-bottom: 32px;
+
+            .title-consultant {
+                .consultant {
+                    display: flex;
+
+                    .avar {
+                        img {
+                            width: 72px;
+                            height: 72px;
+                        }
+
+                        margin-right: 14px;
+                    }
+
+                    .name {
+                        font-weight: 700;
+                        font-size: 18px;
+                        color: #000000;
+                        line-height: 72px;
+                    }
+                }
+            }
+
+            .content-consultant {
+                margin-top: 28px;
+                font-weight: 400;
+                font-size: 15px;
+                color: #4F4F4F;
+            }
+        }
+    }
+
+    .trending {
+
+        .trending-bg {
+
+            .row {
+                margin: 0;
+            }
+
+            .text-container {
+                margin-left: 24px;
+                margin-top: 100px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                h2 {
+                    font-size: 28px;
+                    color: #000000;
+                }
+
+                .trending-tour {
+                    text-align: center;
+                    padding: 7px 60px;
+                    background: #FFFFFF;
+                    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.08);
+                    border-radius: 8px;
+                    margin-bottom: 32px;
+
+                    span {
+                        text-align: center;
+                        font-weight: 400;
+                        font-size: 18px;
+                        color: #323234;
+                    }
+                }
+
+                .trending-tour:nth-child(2) {
+                    width: 287px;
+                }
+
+                .trending-tour:nth-child(3) {
+                    width: 307px;
+                }
+
+                .trending-tour:nth-child(4) {
+                    width: 327px;
+                }
+
+                .trending-tour:nth-child(5) {
+                    width: 307px;
+                }
+
+                .trending-tour:nth-child(6) {
+                    width: 278px;
+                }
+            }
+        }
+    }
+
+    .tour {
+        padding: 80px 24px;
+
+        .tour-title {
+            margin-bottom: 32px;
+
+            span {
+                font-style: normal;
+                font-weight: 700;
+                font-size: 28px;
+                color: #080D34;
+            }
+        }
+
+        .card {
+            width: 100% !important;
+
+            .card-body {
+                .location-title {
+                    position: relative;
+
+                    .response-icon {
+                        display: block;
+                        position: absolute;
+                        right: 0;
+                    }
+                }
+
+            }
+
+            .display-none {
+                display: none !important;
+            }
+        }
+    }
+
+
+    .partner {
+        .person {
+            text-align: center;
+            padding-top: 100px;
+
+            .avar {
+                margin-bottom: 32px;
+
+                img {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+
+            .description {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 22px;
+
+                p {
+                    width: 327px !important;
+                    font-weight: 500;
+                    font-size: 16px;
+                    color: #000000;
+                }
+            }
+
+            .name {
+                font-weight: 700;
+                font-size: 20px;
+                color: #000000;
+            }
+        }
+
+        .our-partner {
+            margin-top: 110px;
+
+            .title {
+                text-align: center;
+
+                span {
+                    font-weight: 700;
+                    font-size: 28px;
+                    color: #080D34;
+                }
+            }
+
+            .partner-slide {
+                display: flex;
+                justify-content: center;
+                margin-top: 48px;
+                margin-bottom: 120px;
+                img{
+                    width: 327px;
+                }
             }
         }
     }

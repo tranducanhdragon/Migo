@@ -160,6 +160,9 @@
                 background: #F3C158;
                 border: 1px solid #F3C158;
                 border-radius: 30px;
+                font-weight: 600;
+                font-size: 16px;
+                color: #323234;
             }
         }
 
@@ -197,6 +200,10 @@
                         font-weight: 400;
                         font-size: 15px;
                         color: #F3C158;
+
+                        span {
+                            cursor: pointer;
+                        }
                     }
                 }
 
@@ -235,6 +242,82 @@
                 align-items: center;
                 margin: 32px;
             }
+        }
+
+        .forgot-pass {
+            .title {
+                i {
+                    margin-right: 12.5px;
+                }
+            }
+
+            .forgot-logo {
+                margin: 40px 142px;
+
+                img {}
+            }
+
+            .content {
+                .description {
+                    .description-title {
+                        margin-left: 32px;
+                        font-weight: 600;
+                        font-size: 16px;
+                        color: #323234;
+                    }
+
+                    p {
+                        margin: 32px;
+                        font-weight: 400;
+                        font-size: 15px;
+                        color: #828282;
+                    }
+                }
+
+                .submit {
+                    margin: 24px 32px 12px 32px;
+
+                    button {
+                        padding: 12px 16px;
+                        background: #F3C158;
+                        border-color: #F3C158;
+                        border-radius: 30px;
+                        font-weight: 600;
+                        font-size: 16px;
+                        color: #323234;
+                    }
+
+                    .btn-disable {
+                        background: #F2F2F2;
+                        border-color: #F2F2F2;
+                        font-weight: 600;
+                        font-size: 16px;
+                        color: #BDBDBD;
+                    }
+                }
+
+                .have-account {
+                    display: flex !important;
+                    margin: 0 54px 32px 54px;
+                    justify-content: center;
+
+                    span {
+                        cursor: pointer;
+                        color: #F3C158;
+                    }
+                }
+
+                .check-account {
+                    margin: 0 54px 32px 54px;
+                    justify-content: center;
+
+                    span {
+                        cursor: pointer;
+                        color: #F3C158;
+                    }
+                }
+            }
+
         }
     }
 }
