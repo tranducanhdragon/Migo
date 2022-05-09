@@ -17,6 +17,7 @@ namespace Core.Config
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ITourService, TourService>();
+            services.AddScoped<IEmailService, EmailService>();
         }
         public static void DependencyInjectionRepository(this IServiceCollection services, IConfiguration configuration)
         {

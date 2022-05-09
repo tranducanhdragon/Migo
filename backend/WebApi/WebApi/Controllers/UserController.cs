@@ -23,13 +23,16 @@ namespace WebApi.Controllers
     public class UserController : BaseController<User>
     {
         private IUserService _userService;
+        private IEmailService _emailService;
 
         public UserController(
             IUserService userService,
+            IEmailService emailService,
             ILogger<UserController> logger)
             :base(userService, logger)
         {
             _userService = userService;
+            _emailService = emailService;
         }
         [HttpPost("register")]
         public IActionResult Register(UserDto dto)
@@ -71,6 +74,21 @@ namespace WebApi.Controllers
                     return Ok(DataResult<User>.ResultSuccess(token,"Login Success"));
                 }   
                 return Ok(DataResult.ResultError("", "Login Fail"));
+            }
+            catch (Exception e)
+            {
+                base._log.LogInformation("Login_Failed_" + e.Message);
+                return Ok(e);
+            }
+        }
+
+        [HttpPost("resetpassword")]
+        public IActionResult ResetPassword(EmailModel authenDto)
+        {
+            try
+            {
+                var result = _emailService.SendEmailToGetResetPass(authenDto);
+                return Ok(DataResult<EmailModel>.ResultSuccess(result, "Login Fail"));
             }
             catch (Exception e)
             {
