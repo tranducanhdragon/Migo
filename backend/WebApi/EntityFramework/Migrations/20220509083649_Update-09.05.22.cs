@@ -2,13 +2,13 @@
 
 namespace EntityFramework.Migrations
 {
-    public partial class Update050522 : Migration
+    public partial class Update090522 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "TourLocation",
-                table: "Tours",
+                name: "TourGuideImage",
+                table: "TourGuides",
                 type: "nvarchar(max)",
                 nullable: true);
         }
@@ -16,8 +16,8 @@ namespace EntityFramework.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "TourLocation",
-                table: "Tours");
+                name: "TourGuideImage",
+                table: "TourGuides");
         }
     }
 }

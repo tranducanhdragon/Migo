@@ -70,6 +70,27 @@ namespace EntityFramework.Migrations
                     b.ToTable("Tours");
                 });
 
+            modelBuilder.Entity("EntityFramework.Entity.TourGuide", b =>
+                {
+                    b.Property<long>("TourGuideId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("TourGuideDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TourGuideImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TourGuideName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TourGuideId");
+
+                    b.ToTable("TourGuides");
+                });
+
             modelBuilder.Entity("EntityFramework.Entity.User", b =>
                 {
                     b.Property<long>("UserId")

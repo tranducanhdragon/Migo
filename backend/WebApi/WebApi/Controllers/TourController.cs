@@ -40,5 +40,19 @@ namespace WebApi.Controllers
                 return Ok(e);
             }
         }
+        [HttpGet("getalltourguide")]
+        public IActionResult GetAllTourGuide()
+        {
+            try
+            {
+                var result = _tourService.GetAllTourGuide();
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                base._log.LogInformation("GetAllTourGuide_Failed_" + e.Message);
+                return Ok(e);
+            }
+        }
     }
 }

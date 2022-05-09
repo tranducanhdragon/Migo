@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntityFramework.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20220505035252_Update-05.05.22")]
-    partial class Update050522
+    [Migration("20220509083649_Update-09.05.22")]
+    partial class Update090522
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,6 +70,27 @@ namespace EntityFramework.Migrations
                     b.HasKey("TourId");
 
                     b.ToTable("Tours");
+                });
+
+            modelBuilder.Entity("EntityFramework.Entity.TourGuide", b =>
+                {
+                    b.Property<long>("TourGuideId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("TourGuideDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TourGuideImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TourGuideName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TourGuideId");
+
+                    b.ToTable("TourGuides");
                 });
 
             modelBuilder.Entity("EntityFramework.Entity.User", b =>

@@ -24,6 +24,7 @@ namespace Core.Config
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<ITourRepository, TourRepository>();
+            services.AddScoped<ITourGuideRepository, TourGuideRepository>();
 
         }
     }

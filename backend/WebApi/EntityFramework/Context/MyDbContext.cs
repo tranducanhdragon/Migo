@@ -17,6 +17,7 @@ namespace EntityFramework.Context
 
         #region Tours
         public DbSet<Tour> Tours { get; set; }
+        public DbSet<TourGuide> TourGuides { get; set; }
         #endregion
 
         #endregion
