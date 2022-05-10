@@ -136,7 +136,8 @@
     <div class="trending-bg">
         <div class="row">
             <div class="col-lg-6">
-                <div class="text-container">
+                <div class="text-container" #scrollingThing
+                    (mouseover)="scrollTrending(scrollingThing)">
                     <h2>What's trending</h2>
                     <div class="trending-tour" *ngFor="let trending of trendings">
                         <span>{{trending}}</span>

@@ -52,8 +52,7 @@
         <div class="menu-icon">
           <img [src]="item.image" alt="">
         </div>
-        <div class="menu-text"
-          [ngStyle]="{'width':item.width}">
+        <div class="menu-text" [ngStyle]="{'width':item.width}">
           {{item.title}}
         </div>
       </div>
@@ -94,5 +93,145 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+<div class="trip-plan">
+  <div class="title">
+    <span>Plan your trip</span>
+  </div>
+  <div class="content">
+    <div class="description">
+      Plan and save your travel experiences.
+      Get your trip ready before you hit the road!
+    </div>
+    <div class="img-area">
+      <img src="/assets/image/home/planning.png" alt="">
+    </div>
+    <div class="planing">
+      <div class="btn-planing">
+        <i class="fa fa-calendar"></i>
+        Start planning
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about-us">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="title">Traveler nói về chúng tôi</div>
+    </div>
+    <div class="col-lg-4 description">
+      <div class="description-text">
+        <div class="quotes-icon">
+          <img src="/assets/image/home/quotes.png" alt="">
+        </div>
+        <p>
+          I really like how user 
+          friendly it is and the auto-save. 
+          I also enjoy being able to look at trips that others
+          have planned for inspiration.
+          <span class="author">
+            <img src="/assets/image/home/aboutus.png" alt="">
+            Gian Cescon
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="col-lg-4 traveler-img">
+      <img src="/assets/image/home/aboutus.png" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="trending_event">
+  <div class="trending_event-title">
+    <div class="main-title">
+      <span>
+        Trending events
+      </span> 
+    </div>
+    <div class="see-more">
+      <span>
+        See more
+      </span> 
+      <img src="/assets/image/home/left-arrow.svg" alt="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="month-bar">
+      <div class="month-list">
+        <div class="month-item active">April</div>
+        <div class="month-item">May</div>
+        <div class="month-item">June</div>
+        <div class="month-item">July</div>
+      </div>
+      <div class="month-line">
+        <img src="/assets/image/home/monthline.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="event">
+      <div class="event-item"
+        *ngFor="let event of events">
+        <img [src]="event.eventImage" alt="">
+        <div class="title">
+          {{event.eventName}}
+        </div>
+        <div class="time">
+          <i class="fa fa-clock"></i>
+          <span>{{event.eventStart}} - {{event.eventEnd}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tour">
+  <div class="tour-title">
+    <span>Popular tour package</span>
+  </div>
+  <div class="row">
+    <ng-container *ngIf="tours">
+      <div *ngFor="let tour of tours" class="col-lg-4" style="display: flex; justify-content: center;">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" [src]="tour.tourImage" alt="Card image cap">
+          <div class="card-body">
+            <div class="location-title">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>{{tour.tourLocation}}</span>
+              <i class="fa fa-angle-down response-icon" (click)="expandCardTour()">
+
+              </i>
+            </div>
+            <h4 [ngClass]="isExpandCardTour?'':'display-none'" class="card-title">{{tour.tourName}}
+            </h4>
+            <p [ngClass]="isExpandCardTour?'':'display-none'" class="card-text">
+              {{tour.tourDescription}}
+            </p>
+            <div [ngClass]="isExpandCardTour?'':'display-none'" class="tour-guide">
+              <div class="guide-icon">
+                <img [src]="tour.tourGuideImage" alt="">
+              </div>
+              <div class="guide-name">
+                {{tour.tourGuideName}}
+              </div>
+            </div>
+          </div>
+          <div [ngClass]="isExpandCardTour?'':'display-none'" class="card-footer text-muted">
+            <div class="row">
+              <div class="col-6">
+                From:&nbsp;
+                <span> ${{tour.tourPrice}}/pax</span>
+              </div>
+              <div class="col-6">
+                <span>{{tour.tourTime}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </div>

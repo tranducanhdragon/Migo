@@ -15,18 +15,22 @@ namespace Core.Service
     {
         DataResult<IEnumerable<Tour>> GetAllTour();
         DataResult<IEnumerable<TourGuide>> GetAllTourGuide();
+        DataResult<IEnumerable<Event>> GetAllEvent();
     }
     public class TourService : BaseService<Tour>, ITourService
     {
         private ITourGuideRepository _tourGuideRepository;
+        private IEventRepository _eventRepository;
         private IMapper _mapper;
         public TourService(
             ITourRepository tourRepo,
             ITourGuideRepository tourGuideRepository,
+            IEventRepository eventRepository,
             IMapper mapper) 
             : base(tourRepo)
         {
             _tourGuideRepository = tourGuideRepository;
+            _eventRepository = eventRepository;
             _mapper = mapper;
         }
         public DataResult<IEnumerable<Tour>> GetAllTour()
@@ -53,6 +57,19 @@ namespace Core.Service
             catch (Exception e)
             {
                 return DataResult<IEnumerable<TourGuide>>.ResultError(e.Message, Resources.Register_Fail);
+            }
+        }
+        public DataResult<IEnumerable<Event>> GetAllEvent()
+        {
+            try
+            {
+                var result = (from events in _eventRepository.GetAll()
+                              select events).ToList();
+                return DataResult<IEnumerable<Event>>.ResultSuccess(result, Resources.Get_All_Success);
+            }
+            catch (Exception e)
+            {
+                return DataResult<IEnumerable<Event>>.ResultError(e.Message, Resources.Register_Fail);
             }
         }
     }

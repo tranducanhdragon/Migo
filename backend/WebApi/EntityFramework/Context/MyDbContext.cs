@@ -19,6 +19,9 @@ namespace EntityFramework.Context
         public DbSet<Tour> Tours { get; set; }
         public DbSet<TourGuide> TourGuides { get; set; }
         #endregion
+        #region Events
+        public DbSet<Event> Events { get; set; }
+        #endregion
 
         #endregion
         public MyDbContext(DbContextOptions<MyDbContext> options):base(options)

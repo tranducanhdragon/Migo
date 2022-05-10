@@ -25,6 +25,7 @@ namespace Core.Config
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<ITourRepository, TourRepository>();
             services.AddScoped<ITourGuideRepository, TourGuideRepository>();
+            services.AddScoped<IEventRepository, EventRepository>();
 
         }
     }

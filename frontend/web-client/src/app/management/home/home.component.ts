@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import { TourService } from 'src/service/community/community.service';
 
 @Component({
   selector: 'app-home',
@@ -58,8 +59,14 @@ export class HomeComponent implements OnInit {
       location:'Quảng Nam, Việt Nam'
     },
   ]
-  ngOnInit(): void {
+
+  constructor(private tourService: TourService){
     
+  }
+
+  ngOnInit(): void {
+    this.getAllTours()
+    this.getAllEvents()
   }
   togglePaused() {
     if (this.paused) {
@@ -85,5 +92,32 @@ export class HomeComponent implements OnInit {
     ) {
       this.togglePaused();
     }
+  }
+  tours: any
+  getAllTours() {
+    this.tourService.getAllData('/api/Tour/getalltour').subscribe(
+      (res: any) => {
+        if (res.success) {
+          console.log('tour', res.data);
+          this.tours = res.data;
+        }
+      }
+    );
+  }
+
+  events: any
+  getAllEvents() {
+    this.tourService.getAllData('/api/Tour/getallevent').subscribe(
+      (res: any) => {
+        if (res.success) {
+          console.log('events', res.data);
+          this.events = res.data;
+        }
+      }
+    );
+  }
+  isExpandCardTour: boolean = false
+  expandCardTour() {
+    this.isExpandCardTour = !this.isExpandCardTour
   }
 }
