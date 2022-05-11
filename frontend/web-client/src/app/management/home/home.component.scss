@@ -6,15 +6,16 @@
     height: 690px;
 }
 
-.slide {
+.slide-box {
     display: flex;
     align-items: center;
     flex-direction: column;
     position: relative;
+    margin-top: 64px;
 
     .slide-area {
-        width: 100%;
         height: 690px;
+        width: 100%;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -25,6 +26,61 @@
         .w-100 {
             width: 100%;
             padding: 0;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 180px 160px;
+            color: #fff;
+            text-align: left;
+
+            .title {
+                width: 436px;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 48px;
+                color: #080D34;
+
+            }
+
+            .description {
+                width: 465px;
+
+                p {
+                    font-weight: 500;
+                    font-size: 18px;
+                    color: #000000;
+                }
+            }
+
+            .btn-area {
+                .btn-letgo {
+                    height: 47px;
+                    padding: 10px 18px;
+                    gap: 10px;
+                    background: rgba(242, 201, 76, 0.8);
+                    border: none;
+                    border-radius: 100px;
+                    font-weight: 600;
+                    font-size: 18px;
+                    color: #000000;
+                    margin-right: 32px;
+                }
+
+                .btn-download {
+                    height: 47px;
+                    padding: 10px 18px;
+                    gap: 10px;
+                    background: rgba(255, 255, 255, 0.24);
+                    border: none;
+                    border-radius: 100px;
+                    font-weight: 600;
+                    font-size: 20px;
+                    color: #F2F2F2;
+                }
+            }
         }
     }
 }
@@ -66,6 +122,7 @@
 
     .content {
         display: flex;
+        flex-direction: column;
 
         .row {
             margin: 0;
@@ -74,13 +131,57 @@
         .content-box {
             width: 100%;
             justify-content: space-between;
+            display: flex;
+            flex-wrap: unset;
+            // overflow-x: auto;
 
             .content-item {
-                margin-bottom: 30px;
+                margin-bottom: 40px;
                 display: flex;
                 justify-content: center;
             }
         }
+
+        .scrollbar {
+            float: left;
+            overflow-x: scroll;
+            margin-bottom: 25px;
+        }
+
+        #wrapper {
+            text-align: center;
+            margin: auto;
+        }
+
+        #style-2::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        #style-2::-webkit-scrollbar-track {
+            background-color: #fff;
+        }
+
+        #style-2::-webkit-scrollbar-thumb {
+            background-color: #333333;
+        }
+
+        // .slide-bar {
+        //     display: flex;
+        //     justify-content: center;
+
+        //     .bar-item {
+        //         width: 170px;
+        //         height: 0px;
+        //         border-top: 3px solid#bfbfbf;
+        //     }
+        //     .bar-item:hover{
+        //         cursor: pointer;
+        //     }
+        //     .active{
+        //         height: 0px;
+        //         border-top: 3px solid #333333;
+        //     }
+        // }
     }
 }
 
@@ -383,7 +484,8 @@
                 margin-right: 15.25px;
             }
         }
-        .see-more:hover{
+
+        .see-more:hover {
             cursor: pointer;
         }
     }
@@ -433,6 +535,8 @@
             display: flex;
 
             .event-item {
+                display: flex;
+                flex-direction: column;
                 margin: 0 15px;
 
                 img {}
@@ -539,6 +643,64 @@
 }
 
 @media only screen and (max-width: 1280px) {
+    .slide-box {
+        .slide-area {
+            img {
+                width: auto !important;
+            }
+            .carousel-caption {
+                padding: 110px 24px;
+                color: #fff;
+                text-align: left;
+    
+                .title {
+                    width: 436px;
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 40px;
+                    color: #080D34;
+    
+                }
+    
+                .description {
+                    width: 465px;
+    
+                    p {
+                        font-weight: 500;
+                        font-size: 16px;
+                        color: #000000;
+                    }
+                }
+    
+                .btn-area {
+                    .btn-letgo {
+                        height: 47px;
+                        padding: 10px 18px;
+                        gap: 10px;
+                        background: rgba(242, 201, 76, 0.8);
+                        border: none;
+                        border-radius: 100px;
+                        font-weight: 600;
+                        font-size: 18px;
+                        color: #000000;
+                        margin-right: 32px;
+                    }
+    
+                    .btn-download {
+                        height: 47px;
+                        padding: 10px 18px;
+                        gap: 10px;
+                        background: rgba(255, 255, 255, 0.24);
+                        border: none;
+                        border-radius: 100px;
+                        font-weight: 600;
+                        font-size: 20px;
+                        color: #F2F2F2;
+                    }
+                }
+            }
+        }
+    }
 
     .destination {
         background: #F9F8F2;
@@ -551,6 +713,8 @@
             min-width: 300px;
 
             .title-right {
+                display: none;
+
                 span {
                     font-weight: 700;
                     font-size: 18px;
@@ -559,8 +723,20 @@
             }
 
             .title-left {
-                display: none;
+                position: absolute;
+                left: 0;
             }
+        }
+
+        .content {
+            .content-box {
+                flex-wrap: unset;
+                overflow-x: auto;
+            }
+
+            // .slide-bar{
+            //     display: none;
+            // }
         }
     }
 
@@ -729,7 +905,9 @@
         .content {
             .description {}
 
-            img {}
+            img {
+                width: inherit;
+            }
 
             .planning {
                 button {
@@ -809,7 +987,7 @@
             justify-content: space-between;
             width: 100%;
             padding: 0 0;
-    
+
             .main-title {
                 span {
                     font-weight: 700;
@@ -817,11 +995,11 @@
                     color: #080D34;
                 }
             }
-    
+
             .see-more {
                 align-items: center;
                 display: flex;
-    
+
                 span {
                     font-weight: 600;
                     font-size: 18px;
@@ -829,7 +1007,8 @@
                     margin-right: 15.25px;
                 }
             }
-            .see-more:hover{
+
+            .see-more:hover {
                 cursor: pointer;
             }
         }
@@ -880,9 +1059,12 @@
 
             .event {
                 display: flex;
+                overflow-x: auto;
 
                 .event-item {
-                    margin: 0 15px;
+                    margin-left: 15px;
+                    margin-right: 15px;
+                    margin-bottom: 20px;
 
                     img {}
 

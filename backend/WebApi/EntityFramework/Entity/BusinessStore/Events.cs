@@ -15,10 +15,12 @@ namespace EntityFramework.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public long EventId { get; set; }
+        [MaxLength(100)] 
         public string EventName { get; set; }
         public string EventDescription { get; set; }
+        [MaxLength(100)]
         public string EventImage { get; set; }
-        public string EventStart { get; set; }
-        public string EventEnd { get; set; }
+        public DateTime EventStart { get; set; }
+        public DateTime EventEnd { get; set; }
     }
 }

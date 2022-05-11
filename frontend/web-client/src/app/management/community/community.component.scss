@@ -282,6 +282,14 @@
 }
 
 @media only screen and (max-width: 1280px) {
+    .slide-box{
+        .slide-area{
+            img{
+                width: auto !important;
+            }
+        }
+    }
+
     .basic-1 {
         .container {
             .row {

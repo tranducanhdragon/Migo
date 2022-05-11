@@ -1,17 +1,37 @@
-<div class="slide">
+<div class="slide-box">
   <div class="d-block w-100 h-690">
   </div>
   <div class="slide-area">
     <div class="w-100">
       <div class="">
-        <ngb-carousel class="w-100 slide-hei" #carousel [interval]="2000" [pauseOnHover]="pauseOnHover"
+        <ngb-carousel class="w-100 slide-hei" #carousel [interval]="5000" [pauseOnHover]="pauseOnHover"
           [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
           <ng-template ngbSlide *ngFor="let img of images; index as i">
-            <a href="https://www.google.fr/?q=Number+{{ i + 1 }}" target="_blank" rel="nofollow noopener noreferrer">
+            <!-- <a>
               <div class="picsum-img-wrapper">
                 <img [src]="img" class="w-100 slide-hei" alt="My image {{ i + 1 }} description" />
               </div>
-            </a>
+            </a> -->
+            <div class="wrapper">
+              <img class="w-100 slide-hei" [src]="img" alt="Random first slide">
+            </div>
+            <div class="carousel-caption">
+              <h3 class="title">Join us for Miles of memories</h3>
+              <div class="description">
+                <p>
+                  Migo Planner’s unique features let you 
+                  plan your upcoming trip with ease 
+                  and share the fun with friends.
+                </p>
+              </div>
+              <div class="btn-area">
+                <button class="btn-letgo">
+                  <i class="fa fa-calendar"></i>
+                  Let's go!
+                </button>
+                <button class="btn-download">Download</button>
+              </div>
+            </div>
           </ng-template>
         </ngb-carousel>
       </div>
@@ -29,7 +49,7 @@
     </div>
   </div>
   <div class="content">
-    <div class="row content-box">
+    <div class="row content-box scrollbar" id="style-2">
       <div class="col-xl-4 content-item">
         <img src="/assets/image/home/des1.png" alt="">
       </div>
@@ -38,6 +58,9 @@
       </div>
       <div class="col-xl-4 content-item">
         <img src="/assets/image/home/des3.png" alt="">
+      </div>
+      <div class="col-xl-4 content-item">
+        <img src="/assets/image/home/des1.png" alt="">
       </div>
     </div>
   </div>
@@ -127,8 +150,8 @@
           <img src="/assets/image/home/quotes.png" alt="">
         </div>
         <p>
-          I really like how user 
-          friendly it is and the auto-save. 
+          I really like how user
+          friendly it is and the auto-save.
           I also enjoy being able to look at trips that others
           have planned for inspiration.
           <span class="author">
@@ -149,12 +172,12 @@
     <div class="main-title">
       <span>
         Trending events
-      </span> 
+      </span>
     </div>
     <div class="see-more">
       <span>
         See more
-      </span> 
+      </span>
       <img src="/assets/image/home/left-arrow.svg" alt="">
     </div>
   </div>
@@ -173,15 +196,14 @@
   </div>
   <div class="row">
     <div class="event">
-      <div class="event-item"
-        *ngFor="let event of events">
+      <div class="event-item" *ngFor="let event of events">
         <img [src]="event.eventImage" alt="">
         <div class="title">
           {{event.eventName}}
         </div>
         <div class="time">
           <i class="fa fa-clock"></i>
-          <span>{{event.eventStart}} - {{event.eventEnd}}</span>
+          <span>{{event.eventStart | date:'shortDate'}} - {{event.eventEnd | date:'shortDate'}}</span>
         </div>
       </div>
     </div>

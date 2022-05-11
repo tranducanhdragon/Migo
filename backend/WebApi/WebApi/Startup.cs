@@ -79,8 +79,14 @@ namespace WebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, 
+            IWebHostEnvironment env, 
+            ILoggerFactory loggerFactory,
+            MyDbContext myDbContext)
         {
+            //run automatic migration
+            myDbContext.Database.Migrate();
+
             //log one-liner
             loggerFactory.AddFile("Logs/WebApi-{Date}.txt");
 
